@@ -40,9 +40,6 @@ def template(testimonial_section):
             .small {
                 font-size: 0.7rem;
             }
-            a, label {
-                white-space: nowrap;
-            }
             .testimonial {
                 border: 1px solid #999;
                 padding: 10px;
@@ -56,8 +53,15 @@ def template(testimonial_section):
         </style>
 
         <ul>
-            <li>
+            <li style="display:flex;align-items:center">
                 <img src="robin.com.au-my-photo.png" title="photo of me" />
+                <a href="https://www.linkedin.com/pub/robin-chew/48/82a/44" style="display:inline-block;width:70px;height:70px;margin:0 40px">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" class="mercado-match" focusable="false" fill="rgb(10, 102, 194)
+    ">
+                      <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/robin.chew.750/">fb</a>
             </li>
             <li>
                 <img src="me-at-robin-com-au.png" />
@@ -66,10 +70,13 @@ def template(testimonial_section):
                 I recruit Software Developers and provide training too, so e-mail me.
             </li>
             <li>
-                <a href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
+                <a href="build_index.py">Python code</a> <span class="small">that generated this index page</span>
             </li>
             <li>
-                <a href="http://workshop.robin.com.au">Workshop</a>
+                <a href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
+            </li>
+            <li style="padding:10px 20px;background:#ffee99">
+                <a  href="http://workshop.robin.com.au">Workshop</a> every Monday 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
             </li>
             <li>
                 <a href="http://music.robin.com.au">Music</a>
@@ -87,15 +94,6 @@ def template(testimonial_section):
 
         <ul class="small" style="margin-top:60px">
             <li>
-                <a href="http://pythonwa.com">Python WA</a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/pub/robin-chew/48/82a/44">Linkedin</a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/robin.chew.750/">Facebook</a>
-            </li>
-            <li>
                 <a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)
             </li>
         </ul>
@@ -112,14 +110,14 @@ def render_testimonials():
         ),
         (
             'Andy Lam Yu',
-            '',
+            'Murdoch Alumni',
             'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
             'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
             'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_100_100/0/1638935450636?e=1679529600&v=beta&t=TXpfqG-5LDAcRZk1XkQwzq9F1QHAOKxW7v6bPQEI7Og',
         ),
         (
             'Jay Xie',
-            '',
+            'Murdoch Alumni',
             "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
             'https://www.linkedin.com/in/jay-xie-11a732230/',
             None,
@@ -129,7 +127,7 @@ def render_testimonials():
         ('div',
         {
             'class': 'clearfix',
-            'style': 'background:#eee;padding:10px;border:solid #ccc;border-width:1px 0',
+            'style': 'background:#eee;padding:10px;margin-top:50px;border:solid #ccc;border-width:1px 0',
         },
         ('h3', { 'style': 'margin:0' }, 'Testimonials'),
         *(
@@ -146,7 +144,7 @@ def render_testimonials():
                         ('img', {'src': pic_link, 'style': 'width:40px;height:40px;vertical-align:middle;margin-right:4px;' }) if pic_link else '',
                         ('div', { 'style': 'align-self:center' },
                             name,
-                            ' (' + sub_name + ')' if sub_name else ''))))
+                            ('span', {'style': 'font-size:0.8em'}, ' (' + sub_name + ')') if sub_name else ''))))
             for i, (name, sub_name, testimonial, link, pic_link) in enumerate(people))))
 
 def build_index():
