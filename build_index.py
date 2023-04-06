@@ -73,10 +73,13 @@ def template(testimonial_section):
                 <a href="build_index.py">Python code</a> <span class="small">that generated this index page</span>
             </li>
             <li>
-                <a href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
+                <a href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing" style="background:pink">Resume</a>
             </li>
             <li style="padding:10px 20px;background:#ffee99">
-                <a  href="http://workshop.robin.com.au">Workshop</a> every Monday 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
+                <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
+                <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
+                    <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
+                </a>
             </li>
             <li>
                 <a href="http://music.robin.com.au">Music</a>
@@ -99,39 +102,22 @@ def template(testimonial_section):
         </ul>
     ''' % {'testimonial_section': testimonial_section})
 
-def render_testimonials():
-    people = [
-        (
-            'Matt Harley',
-            'Megatix',
-            "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
-            'https://www.linkedin.com/in/mattharley/',
-            'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_100_100/0/1631063160378?e=1679529600&v=beta&t=UJJ24JEyWflN9Zc1bl1DWCYoBy8wnFzBQv_F0r1VtqU'
-        ),
-        (
-            'Andy Lam Yu',
-            'Murdoch Alumni',
-            'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
-            'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
-            'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_100_100/0/1638935450636?e=1679529600&v=beta&t=TXpfqG-5LDAcRZk1XkQwzq9F1QHAOKxW7v6bPQEI7Og',
-        ),
-        (
-            'Jay Xie',
-            'Murdoch Alumni',
-            "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
-            'https://www.linkedin.com/in/jay-xie-11a732230/',
-            None,
-        ),
-    ]
-    return render_to_html(
-        ('div',
+def render_testimonials_container(content):
+    return render_to_html((
+        'div',
         {
             'class': 'clearfix',
             'style': 'background:#eee;padding:10px;margin-top:50px;border:solid #ccc;border-width:1px 0',
         },
         ('h3', { 'style': 'margin:0' }, 'Testimonials'),
+        content))
+
+def render_testimonials(people):
+    return render_to_html(
+        ('div',
+        {},
         *(
-            ('div', { 'style': 'float:left;width:{}%'.format(100 / len(people)) },
+            ('div', { 'style': 'float:left;margin-top:10px;width:{}%'.format(100 / len(people)) },
                 ('div', { 'class': 'small testimonial', 'style': 'margin-left:10px;' if i > 0 else '' },
                     '"',
                     testimonial,
@@ -149,7 +135,46 @@ def render_testimonials():
 
 def build_index():
     with open('index.html', 'w') as f:
-        f.write(template(render_testimonials()))
+        f.write(template(render_testimonials_container(
+            render_testimonials([
+                (
+                    'Matt Harley',
+                    'Megatix',
+                    "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
+                    'https://www.linkedin.com/in/mattharley/',
+                    'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1685577600&v=beta&t=e2fWZLFzF6nlBQQ6mBkdkOQkXoew0czqxyuEKeTov0E',
+                ),
+                (
+                    'Andy Lam Yu',
+                    'Murdoch Alumni',
+                    'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
+                    'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
+                    'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1685577600&v=beta&t=lDDxQ7zsCZdeZUj1jSPbRBd5mK3w3hTwKaVLDi0Tp_4',
+                ),
+                (
+                    'Jay Xie',
+                    'Murdoch Alumni',
+                    "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
+                    'https://www.linkedin.com/in/jay-xie-11a732230/',
+                    None,
+                ),
+            ]) + \
+            render_testimonials([
+                    (
+                        'Andrew Ho',
+                        'Murdoch Alumni',
+                        "Robin is a great and knowledgeable mentor in software development. His approach to mentoring allowed me to not only learn from him but grow independently and allow me to build up experience with practical projects as a software developer",
+                        'https://www.linkedin.com/in/andrew-ho-sy/',
+                        'https://media.licdn.com/dms/image/C5603AQE_rEinoZQfcA/profile-displayphoto-shrink_200_200/0/1602740931307?e=1684972800&v=beta&t=Eju0jV4cp3grl-n_4naDJX8vdEI-AR5T3L6dle1Zsf4'
+                    ),
+                    (
+                        'Ryan Tarpey',
+                        'Curtin Undergrad',
+                        "Working with Robin was fantastic, and provided me with the opportunity to gain real-world, practical work experience. His guidance and feedback were very helpful in developing my programming skills past what is taught in university.",
+                        'https://github.com/raan-kun',
+                        'https://avatars.githubusercontent.com/u/11539931?v=4',
+                    ),
+                ]))))
 
 if __name__ == '__main__':
     build_index()
