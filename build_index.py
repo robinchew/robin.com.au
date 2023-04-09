@@ -142,14 +142,14 @@ def build_index():
                     'Megatix',
                     "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
                     'https://www.linkedin.com/in/mattharley/',
-                    'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1685577600&v=beta&t=e2fWZLFzF6nlBQQ6mBkdkOQkXoew0czqxyuEKeTov0E',
+                    'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1686787200&v=beta&t=3sOAMnyX1U4U9uuH0zVvAUCVM6l6bU7545Iw-NRh5Ns',
                 ),
                 (
                     'Andy Lam Yu',
                     'Murdoch Alumni',
                     'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
                     'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
-                    'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1685577600&v=beta&t=lDDxQ7zsCZdeZUj1jSPbRBd5mK3w3hTwKaVLDi0Tp_4',
+                    'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1686787200&v=beta&t=tN6nSHhFz37OsyWiu5MPOeE0N1m96YkL1ELBHnqGukA',
                 ),
                 (
                     'Jay Xie',
