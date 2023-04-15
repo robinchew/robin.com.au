@@ -12,7 +12,7 @@ def render_to_html(hyper):
         return el(tag, attrs, ''.join(render_to_html(item) for item in rest))
     return hyper
 
-def top_list(content_list):
+def custom_list(content_list):
     return el('ul', {'style': "padding:0;margin:100px 0;list-style:none"}, ''.join([
         el('li',
             {
@@ -66,44 +66,45 @@ def template(testimonial_section):
 
         %(testimonial_section)s
 
-        <ul style="margin-top:100px">
-            <li>
-                <a href="http://music.robin.com.au">Music</a>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Noun_project_-_Music_notes.svg" style="width:1em;vertical-align:top" />
-                <span class="small">
-                    Looking for a volunteer to programme using
-                    <a href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html">fast fourier transform</a> to recognise musical notes.
-                    <a href="files/2022-12-12 19.54.21.wav">Sample sound file WAV</a>
-                    <a href="files/2022-12-12 19.53.49.ogg">Sample sound file OGG</a>
-                </span>
-            </li>
-            <li>
-                <a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)
-            </li>
-        </ul>
-    ''' % {'testimonial_section': testimonial_section, 'top_list': top_list([
-        ('', '''
-        <img src="robin.com.au-my-photo.png" title="photo of me" />
-        <a href="https://www.linkedin.com/pub/robin-chew/48/82a/44" style="display:inline-block;width:70px;height:70px;margin:0 40px">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" class="mercado-match" focusable="false" fill="rgb(10, 102, 194)
-">
-              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
-            </svg>
-        </a>
-        <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
-        '''),
-        ('', '<span><img style="vertical-align:middle;margin-right:20px" src="me-at-robin-com-au.png" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
-        ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>'),
-        ('', dedent('''\
-        <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
-            <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
-            <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
-                <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
+        %(bottom_list)s
+    ''' % {
+        'testimonial_section': testimonial_section,
+        'top_list': custom_list([
+            ('', '''
+            <img src="robin.com.au-my-photo.png" title="photo of me" />
+            <a href="https://www.linkedin.com/pub/robin-chew/48/82a/44" style="display:inline-block;width:70px;height:70px;margin:0 40px">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" class="mercado-match" focusable="false" fill="rgb(10, 102, 194)
+    ">
+                  <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                </svg>
             </a>
-        </span>
-        ''')),
-        ('', '<span><a href="build_index.py">Python code</a> <span class="small">that generated this index page</span></span>'),
-    ])})
+            <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
+            '''),
+            ('', '<span><img style="vertical-align:middle;margin-right:20px" src="me-at-robin-com-au.png" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
+            ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>'),
+            ('', dedent('''\
+            <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
+                <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
+                <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
+                    <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
+                </a>
+            </span>
+            ''')),
+            ('', '<span><a href="build_index.py">Python code</a> <span class="small">that generated this index page</span></span>'),
+        ]),
+        'bottom_list': custom_list([
+            ('', '''<a href="http://music.robin.com.au">Music</a>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Noun_project_-_Music_notes.svg" style="width:1em;vertical-align:top" />
+            <span class="small" style="margin-left:20px">
+                Looking for a volunteer to programme using
+                <a href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html">fast fourier transform</a> to recognise musical notes.
+                <a href="files/2022-12-12 19.54.21.wav">Sample sound file WAV</a>
+                <a href="files/2022-12-12 19.53.49.ogg">Sample sound file OGG</a>
+            </span>
+            '''),
+            ('', '<a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)'),
+        ])
+    })
 
 def render_testimonials_container(content):
     return render_to_html((
