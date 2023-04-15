@@ -156,7 +156,7 @@ def build_index():
                     'Murdoch Alumni',
                     "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
                     'https://www.linkedin.com/in/jay-xie-11a732230/',
-                    None,
+                    'https://scontent.fper8-1.fna.fbcdn.net/v/t1.6435-1/120260725_1582558508594212_5469676501295061332_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Tnzxgw2_yxQAX-67Qmf&_nc_ht=scontent.fper8-1.fna&oh=00_AfDVd8xk7CLDgoUPpe_GRC3X5pte71CqcGQzVn3Xr55rxQ&oe=64619CDD',
                 ),
             ]) + \
             render_testimonials([
