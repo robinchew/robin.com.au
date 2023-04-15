@@ -13,7 +13,7 @@ def render_to_html(hyper):
     return hyper
 
 def top_list(content_list):
-    return el('ul', {'style': "padding:0;margin:0;list-style:none"}, ''.join([
+    return el('ul', {'style': "padding:0;margin:100px 0;list-style:none"}, ''.join([
         el('li',
             {
                 'style': 'display:flex;align-items:center;' + style,
