@@ -111,7 +111,7 @@ def render_testimonials_container(content):
         'div',
         {
             'class': 'clearfix',
-            'style': 'background:#eee;padding:10px;margin-top:50px;border:solid #ccc;border-width:1px 0',
+            'style': 'background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAA7CAAAAABjipRUAAAArklEQVQoz22ROQ7EIBDA5v+P9VwQNlH2KBhSoKWyZMAc0plDriz4vg2gCdq6Zw8B4nuDAJxR0NhhqZq8lj8bPokn+qd+66pn95h1/1yVGF6Q7LCU3ycIms2judyXAqSMqESyw/B1jJcChECkeboAdo5KdCtwdmil7HWAgIdZmIxDAVyaVcLZIZc65nO4gLmamwDasxKhBcYOXkpzfoGaqqnkvLKJayWUHWwpnwfSH4yGuj6Fkz9DAAAAAElFTkSuQmCC) #eee repeat-x;padding:10px;margin-top:50px;border:solid #ddd;border-width:1px 0',
         },
         ('h3', { 'style': 'font-family:monospace;font-weight:normal;margin:0' }, 'Testimonials'),
         content))
