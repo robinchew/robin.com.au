@@ -70,9 +70,9 @@ def template(testimonial_section):
                 I recruit Software Developers and provide training too, so e-mail me.
             </li>
             <li>
-                <a style="padding:10px 20px;background:pink" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
+                <a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
             </li>
-            <li style="padding:10px 20px;background:#ffee99">
+            <li style="padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
                 <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
                     <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
