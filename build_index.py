@@ -102,7 +102,7 @@ def template(testimonial_section):
                 <a href="files/2022-12-12 19.53.49.ogg">Sample sound file OGG</a>
             </span>
             '''),
-            ('', '<a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)'),
+            ('', '<span><a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)</span>'),
         ])
     })
 
