@@ -61,7 +61,7 @@ def template(testimonial_section):
                       <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
                     </svg>
                 </a>
-                <a href="https://www.facebook.com/robin.chew.750/">fb</a>
+                <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
             </li>
             <li>
                 <img src="me-at-robin-com-au.png" />
@@ -70,17 +70,22 @@ def template(testimonial_section):
                 I recruit Software Developers and provide training too, so e-mail me.
             </li>
             <li>
-                <a href="build_index.py">Python code</a> <span class="small">that generated this index page</span>
-            </li>
-            <li>
-                <a href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing" style="background:pink">Resume</a>
+                <a style="padding:10px 20px;background:pink" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>
             </li>
             <li style="padding:10px 20px;background:#ffee99">
-                <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
+                <a  href="http://workshop.robin.com.au/chat/week1">Workshop</a> every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
                 <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
                     <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
                 </a>
             </li>
+            <li>
+                <a href="build_index.py">Python code</a> <span class="small">that generated this index page</span>
+            </li>
+        </ul>
+
+        %(testimonial_section)s
+
+        <ul style="margin-top:60px">
             <li>
                 <a href="http://music.robin.com.au">Music</a>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Noun_project_-_Music_notes.svg" style="width:1em;vertical-align:top" />
@@ -89,13 +94,8 @@ def template(testimonial_section):
                     <a href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html">fast fourier transform</a> to recognise musical notes.
                     <a href="files/2022-12-12 19.54.21.wav">Sample sound file WAV</a>
                     <a href="files/2022-12-12 19.53.49.ogg">Sample sound file OGG</a>
-            </span>
+                </span>
             </li>
-        </ul>
-
-        %(testimonial_section)s
-
-        <ul class="small" style="margin-top:60px">
             <li>
                 <a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)
             </li>
