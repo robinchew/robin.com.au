@@ -66,7 +66,7 @@ def template(testimonial_section):
 
         %(testimonial_section)s
 
-        <ul style="margin-top:60px">
+        <ul style="margin-top:100px">
             <li>
                 <a href="http://music.robin.com.au">Music</a>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Noun_project_-_Music_notes.svg" style="width:1em;vertical-align:top" />
@@ -112,7 +112,7 @@ def render_testimonials_container(content):
             'class': 'clearfix',
             'style': 'background:#eee;padding:10px;margin-top:50px;border:solid #ccc;border-width:1px 0',
         },
-        ('h3', { 'style': 'margin:0' }, 'Testimonials'),
+        ('h3', { 'style': 'font-family:monospace;font-weight:normal;margin:0' }, 'Testimonials'),
         content))
 
 def render_testimonials(people):
