@@ -1,4 +1,74 @@
+import base64
+import io
 from textwrap import dedent
+from PIL import Image, ImageColor
+
+# Image generation
+
+def hex_to_dec(hex_colour):
+    return ImageColor.getcolor(hex_colour, "RGBA")
+
+def create_tile():
+    # code = b'iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAQAAAAEnG+bAAAAZklEQVQIHU3BsQnCAAAEwEewEAdwDolgoWApJIVY2SmoAWvXcAP3cAQ3sHcSOUmKJHdRpGMc53Ss42uWlol3FI5uNq4ulmlY+Tml55EhZYY801Phnoat2t5cqbaLj2laRl5xSMfiDz2iMrtJcYQcAAAAAElFTkSuQmCC'
+    code = b'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'
+
+    image = Image.open(io.BytesIO(base64.b64decode(code)))
+    image.convert('RGBA')
+
+    new_width = 8
+    new_height = int((float(new_width) / image.size[0]) * image.size[1])
+    return image.resize((new_width, new_height))
+
+def create_roof():
+    tile = create_tile()
+    tile_width, tile_height = tile.size
+    num_tiles = 6
+    roof = Image.new('RGBA', (tile_width, tile_height * num_tiles))
+    for i in range(num_tiles):
+        roof.paste(tile, (0, i * tile_height))
+    return roof
+
+def create_gradient_top_down(size, colour_top, colour_bottom):
+    gradient = Image.new('RGBA', size, color=(255, 255, 255, 0))
+    width, height = size
+
+    # Create a gradient from top to bottom
+    for y in range(height):
+        for x in range(width):
+            r = int(colour_top[0] + (colour_bottom[0] - colour_top[0]) * y / height)
+            g = int(colour_top[1] + (colour_bottom[1] - colour_top[1]) * y / height)
+            b = int(colour_top[2] + (colour_bottom[2] - colour_top[2]) * y / height)
+            a = int(colour_top[3] + (colour_bottom[3] - colour_top[3]) * y / height)
+            gradient.putpixel((x, y), (r, g, b, a))
+    return gradient
+
+def save(image):
+    image.save('image.png')
+
+def layer(size, images):
+    final_image = Image.new('RGBA', size, color=(255, 255, 255, 0))
+
+    for image in images:
+        #draw.rectangle((0, 0, image.width, image.height), fill=(255, 255, 255, 0))
+        final_image = Image.alpha_composite(final_image, image)
+    return final_image
+
+def get_bytes(image, optimize=True):
+    with io.BytesIO() as output:
+        image.save(output, format='PNG', optimize=optimize)
+        return output.getvalue()
+
+def compress(image):
+    width, height = image.size
+    #png_data = image.tobytes()
+    #print('png', png_data)
+    #png_image = png.Writer(width=width, height=height, bitdepth=8)
+    #png_bytes = png_image.write_array(png_data)
+
+    # Compress the pyPNG image using pngquant
+    #return pngquant.quantize(get_bytes(image))
+
+# HTML
 
 def el(tag, attrs, content):
     if tag == 'br':
@@ -33,12 +103,19 @@ print(render_to_html(
 '''
 
 def template(testimonial_section):
+    roof = create_roof()
+    top_tile = layer(roof.size, [
+        create_gradient_top_down(roof.size, hex_to_dec('#eeeeee'), (255, 255, 255, 255)),
+        roof,
+    ])
+    tile_image_code = base64.b64encode(get_bytes(top_tile)).decode()
     return dedent('''\
         <style>
             html {
                 font-size: 30px;
             }
             body {
+                background: url(data:image/png;base64,%(tile_image_code)s) repeat-x;
                 margin: 0;
             }
             ul {
@@ -68,6 +145,7 @@ def template(testimonial_section):
 
         %(bottom_list)s
     ''' % {
+        'tile_image_code': tile_image_code,
         'testimonial_section': testimonial_section,
         'top_list': custom_list([
             ('', '''
