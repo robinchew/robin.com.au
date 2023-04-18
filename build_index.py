@@ -204,15 +204,17 @@ def render_testimonials(people):
                     '"',
                     testimonial,
                     '"',
-                    ('a',
+                    ('div',
                         {
-                            'href': link,
-                            'style': 'display:flex;justify-content:end',
+                            'style': 'display:flex;justify-content:end;align-items:center',
                         },
-                        ('img', {'src': pic_link, 'style': 'width:40px;height:40px;vertical-align:middle;margin-right:4px;' }) if pic_link else '',
-                        ('div', { 'style': 'align-self:center' },
-                            name,
-                            ('span', {'style': 'font-size:0.8em'}, ' (' + sub_name + ')') if sub_name else ''))))
+                        ('a',
+                            {
+                                'href': link,
+                            },
+                            ('img', {'src': pic_link, 'style': 'width:40px;height:40px;vertical-align:middle;margin-right:4px;' }) if pic_link else ''),
+                        ('a', { 'href': link, 'style': 'margin: 0 5px' }, name),
+                        ('span', {'style': 'font-size:0.8em'}, ' (' + sub_name + ')') if sub_name else '')))
             for i, (name, sub_name, testimonial, link, pic_link) in enumerate(people))))
 
 def build_index():
@@ -228,14 +230,14 @@ def build_index():
                 ),
                 (
                     'Andy Lam Yu',
-                    'Murdoch Alumni',
+                    'Murdoch Grad',
                     'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
                     'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
                     'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1686787200&v=beta&t=tN6nSHhFz37OsyWiu5MPOeE0N1m96YkL1ELBHnqGukA',
                 ),
                 (
                     'Jay Xie',
-                    'Murdoch Alumni',
+                    'Murdoch Grad',
                     "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
                     'https://www.linkedin.com/in/jay-xie-11a732230/',
                     'https://scontent.fper8-1.fna.fbcdn.net/v/t1.6435-1/120260725_1582558508594212_5469676501295061332_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Tnzxgw2_yxQAX-67Qmf&_nc_ht=scontent.fper8-1.fna&oh=00_AfDVd8xk7CLDgoUPpe_GRC3X5pte71CqcGQzVn3Xr55rxQ&oe=64619CDD',
@@ -244,7 +246,7 @@ def build_index():
             render_testimonials([
                     (
                         'Andrew Ho',
-                        'Murdoch Alumni',
+                        'Murdoch Grad',
                         "Robin is a great and knowledgeable mentor in software development. His approach to mentoring allowed me to not only learn from him but grow independently and allow me to build up experience with practical projects as a software developer",
                         'https://www.linkedin.com/in/andrew-ho-sy/',
                         'https://media.licdn.com/dms/image/C5603AQE_rEinoZQfcA/profile-displayphoto-shrink_200_200/0/1602740931307?e=1684972800&v=beta&t=Eju0jV4cp3grl-n_4naDJX8vdEI-AR5T3L6dle1Zsf4'
