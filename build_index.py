@@ -159,7 +159,7 @@ def template(testimonial_section):
             <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
             '''),
             ('', '<span><img style="vertical-align:middle;margin-right:20px" src="me-at-robin-com-au.png" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
-            ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a>'),
+            ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a><a style="margin-left:20px" href="resume-2023.pdf">PDF</a>'),
             ('', dedent('''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="http://workshop.robin.com.au/chat/week1">Learn Programming</a> with others every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
