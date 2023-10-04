@@ -1,6 +1,6 @@
 const expDesciption = [
     "I've been programming for more than 10 years professionally, developing mostly in Erlang,  Python and JavaScript. I've been heavily influenced by functional programming languages such as Clojure. Whichever programming language I use nowadays, I write more \"value-oriented\" (as described by Rich Hickey ",
-    'https://youtu.be/-6BsiVyC1kM',
+    ['a',{href:'https://youtu.be/-6BsiVyC1kM'},'https://youtu.be/-6BsiVyC1kM'],
     ") with immutable data and composable functions, rather than object-oriented code."
 ];
 
@@ -11,5 +11,5 @@ const resume = [
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
     ['h2', 'Experience'],
-    ['div', expDesciption]
+    ['div', expDesciption],
 ];
