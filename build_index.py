@@ -162,7 +162,7 @@ def template(testimonial_section):
             ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="https://docs.google.com/document/d/1Gy45ACXyeNOT1AiA0fKXVSEUd133net_6asxgg29EPc/edit?usp=sharing">Resume</a><a style="margin-left:20px" href="resume-2023.pdf">PDF</a>'),
             ('', dedent('''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
-                <a  href="http://workshop.robin.com.au">Learn Programming</a> with others every Monday (except holidays) 6pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
+                <a  href="https://www.meetup.com/social-coding/">Social Coding</a> every Thursday (except holidays) at 5pm - 7pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
                 <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
                     <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
                 </a>
