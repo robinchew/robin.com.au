@@ -218,47 +218,47 @@ def render_testimonials(people):
             for i, (name, sub_name, testimonial, link, pic_link) in enumerate(people))))
 
 def build_index():
-    with open('index.html', 'w') as f:
-        f.write(template(render_testimonials_container(
-            render_testimonials([
+    content = template(render_testimonials_container(
+        render_testimonials([
+            (
+                'Matt Harley',
+                'Megatix',
+                "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
+                'https://www.linkedin.com/in/mattharley/',
+                'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1686787200&v=beta&t=3sOAMnyX1U4U9uuH0zVvAUCVM6l6bU7545Iw-NRh5Ns',
+            ),
+            (
+                'Andy Lam Yu',
+                'Murdoch Grad',
+                'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
+                'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
+                'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1686787200&v=beta&t=tN6nSHhFz37OsyWiu5MPOeE0N1m96YkL1ELBHnqGukA',
+            ),
+            (
+                'Jay Xie',
+                'Murdoch Grad',
+                "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
+                'https://www.linkedin.com/in/jay-xie-11a732230/',
+                'https://scontent.fper8-1.fna.fbcdn.net/v/t1.6435-1/120260725_1582558508594212_5469676501295061332_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Tnzxgw2_yxQAX-67Qmf&_nc_ht=scontent.fper8-1.fna&oh=00_AfDVd8xk7CLDgoUPpe_GRC3X5pte71CqcGQzVn3Xr55rxQ&oe=64619CDD',
+            ),
+        ]) + \
+        render_testimonials([
                 (
-                    'Matt Harley',
-                    'Megatix',
-                    "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
-                    'https://www.linkedin.com/in/mattharley/',
-                    'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1686787200&v=beta&t=3sOAMnyX1U4U9uuH0zVvAUCVM6l6bU7545Iw-NRh5Ns',
-                ),
-                (
-                    'Andy Lam Yu',
+                    'Andrew Ho',
                     'Murdoch Grad',
-                    'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
-                    'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
-                    'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1686787200&v=beta&t=tN6nSHhFz37OsyWiu5MPOeE0N1m96YkL1ELBHnqGukA',
+                    "Robin is a great and knowledgeable mentor in software development. His approach to mentoring allowed me to not only learn from him but grow independently and allow me to build up experience with practical projects as a software developer",
+                    'https://www.linkedin.com/in/andrew-ho-sy/',
+                    'https://media.licdn.com/dms/image/C5603AQE_rEinoZQfcA/profile-displayphoto-shrink_200_200/0/1602740931307?e=1684972800&v=beta&t=Eju0jV4cp3grl-n_4naDJX8vdEI-AR5T3L6dle1Zsf4'
                 ),
                 (
-                    'Jay Xie',
-                    'Murdoch Grad',
-                    "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
-                    'https://www.linkedin.com/in/jay-xie-11a732230/',
-                    'https://scontent.fper8-1.fna.fbcdn.net/v/t1.6435-1/120260725_1582558508594212_5469676501295061332_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Tnzxgw2_yxQAX-67Qmf&_nc_ht=scontent.fper8-1.fna&oh=00_AfDVd8xk7CLDgoUPpe_GRC3X5pte71CqcGQzVn3Xr55rxQ&oe=64619CDD',
+                    'Ryan Tarpey',
+                    'Curtin Undergrad',
+                    "Working with Robin was fantastic, and provided me with the opportunity to gain real-world, practical work experience. His guidance and feedback were very helpful in developing my programming skills past what is taught in university.",
+                    'https://github.com/raan-kun',
+                    'https://avatars.githubusercontent.com/u/11539931?v=4',
                 ),
-            ]) + \
-            render_testimonials([
-                    (
-                        'Andrew Ho',
-                        'Murdoch Grad',
-                        "Robin is a great and knowledgeable mentor in software development. His approach to mentoring allowed me to not only learn from him but grow independently and allow me to build up experience with practical projects as a software developer",
-                        'https://www.linkedin.com/in/andrew-ho-sy/',
-                        'https://media.licdn.com/dms/image/C5603AQE_rEinoZQfcA/profile-displayphoto-shrink_200_200/0/1602740931307?e=1684972800&v=beta&t=Eju0jV4cp3grl-n_4naDJX8vdEI-AR5T3L6dle1Zsf4'
-                    ),
-                    (
-                        'Ryan Tarpey',
-                        'Curtin Undergrad',
-                        "Working with Robin was fantastic, and provided me with the opportunity to gain real-world, practical work experience. His guidance and feedback were very helpful in developing my programming skills past what is taught in university.",
-                        'https://github.com/raan-kun',
-                        'https://avatars.githubusercontent.com/u/11539931?v=4',
-                    ),
-                ]))))
+            ])))
+    print(content)
 
 if __name__ == '__main__':
     build_index()
