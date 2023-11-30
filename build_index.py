@@ -163,8 +163,8 @@ def template(testimonial_section):
             ('', dedent('''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="https://www.meetup.com/social-coding/">Social Coding</a> every Thursday (except holidays) at 5pm - 7pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
-                <a  href="http://www.robin.com.au/monday-workshop-main-image.jpg">
-                    <img src="http://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
+                <a  href="https://www.robin.com.au/monday-workshop-main-image.jpg">
+                    <img src="https://www.robin.com.au/monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
                 </a>
             </span>
             ''')),
