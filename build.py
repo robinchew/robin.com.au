@@ -41,11 +41,11 @@ def build_index(full_path, package_name, apps):
 @chmod(0o755)
 @file
 def postinst(full_path, package_name, apps):
-    domains = apps[package_name]['domains']
+    domains = ','.join(apps[package_name]['https_domains'])
     return f'''\
         #!/bin/bash
         set -x
-        certbot run -n --nginx --agree-tos -d {domains}
+        sudo certbot run -n --nginx --agree-tos -d {domains}
     '''
 
 def get_package_tree(package_name, apps):
