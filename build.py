@@ -3,7 +3,7 @@ import sh
 import subprocess
 
 from eluthia.defaults import control
-from eluthia.decorators import file
+from eluthia.decorators import file, chmod
 from eluthia.functional import pipe
 from eluthia.py_configs import deb822, nginx
 
@@ -38,9 +38,20 @@ def build_index(full_path, package_name, apps):
     content = python(os.path.join(app['folder'], 'build_index.py'))
     return content
 
+@chmod(0o755)
+@file
+def postinst(full_path, package_name, apps):
+    domains = ','.join(apps[package_name]['https_domains'])
+    return f'''\
+        #!/bin/bash
+        set -x
+        sudo certbot run -n --nginx --agree-tos -d {domains}
+    '''
+
 def get_package_tree(package_name, apps):
     return {
         'DEBIAN': {
+            'postinst': postinst,
             'control': file(pipe(
                 control,
                 lambda d: {
