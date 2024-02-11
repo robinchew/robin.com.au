@@ -62,6 +62,7 @@ def get_package_tree(package_name, apps):
                     # No need this dependency, because we want to generate index.html
                     # and deploy this without deploying build_index.py
                     # 'Depends': 'python3-pil',
+                    'Depends': 'python3-certbot-nginx',
                 },
                 deb822)),
         },
