@@ -35,7 +35,7 @@ def build_index(full_path, package_name, apps):
     pip.install('pillow')
 
     python = sh.Command(os.path.join(app['env']['VENV_BUILD_PATH'], 'bin/python'))
-    content = python(os.path.join(app['folder'], 'build_index.py'))
+    content = python(os.path.join(app['clean_git_folder'], 'build_index.py'))
     return content
 
 @chmod(0o755)
