@@ -143,7 +143,7 @@ const contract2018 = [
 ];
 
 const obsiProjDesc = [
-    "OBSI is a software consultancy company that I've started, and below are the list of projects that I've completed for clients. See some screenshots at "
+    "OBSI is a software consultancy company that I've started, and below are the list of projects that I've completed for clients. See some screenshots at ",
     ['a',{href:'http://obsi.com.au'}, 'http://obsi.com.au'],
     " or else I am able to demonstrate these applications on request."
 ];
