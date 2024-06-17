@@ -279,7 +279,15 @@ const resume = [
     ['div', obsiProject2015.desc],
     ['div', 'Technology Stack:'],
     ['ul', obsiProject2015.techStack],
+
     ['h2', 'Past Employment'],
+    ['h3', '2023 - 2024'],
+    ['a',{href: 'https://www.orexplore.com/'}, 'Orexplore'],
+    ['div', [['b', 'Position: ' + 'Software Engineer']]],
+    ['b', 'Reference: ' + 'Thomas Drage (Engineering Manager) (drage@iinet.net.au)'],
+    ['div', 'Phone number on request'],
+    ['div', [['a', {href: 'https://www.linkedin.com/in/thomas-drage/'}, 'https://www.linkedin.com/in/thomas-drage/']]],
+
     ['h3', '2018 ' + employment2018.endDate + ': ' + employment2018.companyName],
     ['a',{href:employment2018.url},employment2018.url],
     ['div', [['b', 'Position: ' + employment2018.position]]],
