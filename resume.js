@@ -5,7 +5,7 @@ const expDesciption = [
 ];
 
 const frontendStacks = [
-    'Javascript + Mithril/React'
+    ['Javascript + ', ['a', { href: 'https://mithril.js.org' }, 'Mithril'], '/React'],
 ];
 
 const backendStacks = [
@@ -36,9 +36,22 @@ const skills = [
     'Photoshop',
     'LXC, Docker, VirtualBox/Vagrant, VMWare, etc.',
     'AWS services: EC2, S3, Lambda, DynamoDB, Elastic Beanstalk, etc.',
+];
+
+const talks = [
+    {
+        title: 'Teaching Python and Javascript to aspiring developers',
+        list: [
+            [
+              ['a',{href:'https://www.canning.wa.gov.au/events/social-coding/'}, 'Social Coding'],
+              ' every week at Hillview Intercultural Community Centre',
+            ],
+            ['a',{href:'https://www.meetup.com/pythonwa/events/290315903/'},'https://www.meetup.com/pythonwa/events/290315903/']
+        ]
+    },
     {
         title: [
-            'Co-organiser of the monthly Python meetup ',
+            'Co-organiser of the monthly Python meetup (2016-2022) ',
             ['a',{href:'http://pythonwa.com'},'http://pythonwa.com']
         ],
         list: [{
@@ -59,12 +72,6 @@ const skills = [
         }]
     },
     {
-        title: 'Teaching Python and Javascript to aspiring developers',
-        list: [
-            ['a',{href:'https://www.meetup.com/pythonwa/events/290315903/'},'https://www.meetup.com/pythonwa/events/290315903/']
-        ]
-    },
-    {
         title: [
             'As guest programming workshop presenter for Perth Machine Learning Group ',
             ['a',{href:'https://www.pmlg.org/'},'pmlg.org']
@@ -79,7 +86,8 @@ const skills = [
 ];
 
 const contract2023 = [
-    'Continued work for Dinner Twist to analyse packing data.'
+    'Continued work for Dinner Twist to analyse packing data.',
+    ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '.'],
 ];
 
 const contract2022 = [
@@ -128,6 +136,10 @@ const contract2019 = [
     ],
     'Sub-contracted Kotlin development for sailing-related mobile app',
     'After hours assistant teaching Scratch for ICTLabs in Riverlands Montessori School'
+];
+
+const contract2018 = [
+   ['Did a short contract work with ', ['a', { href: 'https://megatix.com.au' }, 'Megatix'], '. (Laravel, Vue)'],
 ];
 
 const obsiProjDesc = [
@@ -214,6 +226,7 @@ const resume = [
     ['div', 'Perth'],
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
+    ['p', ['Find my most up-to-date resume at ', ['a', { href: 'http://robin.com.au' }, 'robin.com.au']]],
     ['h2', 'Experience'],
     ['div', expDesciption],
     ['h2', 'Technology Stack'],
@@ -227,6 +240,8 @@ const resume = [
     ['ul', lessFamiliar],
     ['h2', 'General Skills'],
     ['ul', skills],
+    ['h2', 'Talks/Workshops'],
+    ['ul', talks],
     ['h2', 'Contract Work'],
     ['h3', '2023'],
     ['ul', contract2023],
@@ -241,6 +256,9 @@ const resume = [
     ['ul', contract2020],
     ['h3', '2019'],
     ['ul', contract2019],
+    ['h3', '2018'],
+    ['ul', contract2018],
+
     ['h2', 'Projects developed under my OBSI business'],
     ['div', obsiProjDesc],
     ['h3', '2019 - ' + obsiProject2019.projName],
