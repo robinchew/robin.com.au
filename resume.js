@@ -87,7 +87,7 @@ const talks = [
 
 const contract2023 = [
     'Continued work for Dinner Twist to analyse packing data.',
-    ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '.'],
+    ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '. (Python/Prefect, JS/Mithril/WebSocket, Oracle/APEX, Buildah/Podman)'],
 ];
 
 const contract2022 = [
@@ -248,10 +248,7 @@ const resume = [
     ['h3', '2022'],
     ['ul', contract2022],
     ['h3', '2021'],
-    ['h4', 'Qouted Work'],
-    ['ul', quotedWork2021],
-    ['h4', 'Part-Time Only Contract'],
-    ['ul', partTime2021],
+    ['ul', quotedWork2021.concat(partTime2021)],
     ['h3', '2020'],
     ['ul', contract2020],
     ['h3', '2019'],
