@@ -23,18 +23,18 @@ const familiarStacks = [
 const lessFamiliar = [
     'C#/.NET Core',
     'Java',
-    'G'
+    'Go'
 ];
 
 const skills = [
-    'Arch Linux, Ubuntu, Debian, Red Hat',
+    'Arch Linux, Ubuntu, Debian, Red Hat, Slackware',
     'Vim, Android Studio, Xcode',
     'PostgreSQL, MySQL, MSSQL, SQLite',
-    'Git with Github, Gitlab, Bitbucket',
+    'Git, Github, Gitlab, Bitbucket',
     'Bash Scripting',
     'HTML/CSS',
     'Photoshop',
-    'LXC, Docker, VirtualBox/Vagrant, VMWare, etc.',
+    'Docker, LXC, Buildah, VirtualBox/Vagrant, VMWare',
     'AWS services: EC2, S3, Lambda, DynamoDB, Elastic Beanstalk, etc.',
 ];
 
