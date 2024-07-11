@@ -92,7 +92,7 @@ const contract2023 = [
 
 const contract2022 = [
     'Got sick of programming and became a barista to run a cafe for a month. I don\'t even drink coffee.',
-    'Built a development team to do e-commerce integration for a salon supply company. (Python, Wordpress/Woocommerce/PHP, Erlang)',
+    'Assemble a software team to do e-commerce integration for a salon supply company. (Python, Wordpress/Woocommerce/PHP, Erlang)',
     'Social chat programme (Python, Erlang, JavaScript/WebSocket, PostgreSQL)',
     [
         'Semi-automatic food picking system to reduce worker pack time and eliminate human errors for ',
@@ -102,7 +102,7 @@ const contract2022 = [
 ];
 
 const quotedWork2021 = [
-    'Built a development team to develop a platform for a business that connects service providers and staff. (Python, JavaScript, PostgreSQL, Dart + Flutter)'
+    'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers. (Python, JavaScript, PostgreSQL, Dart + Flutter)'
 ];
 
 const partTime2021 = [
@@ -161,7 +161,7 @@ const obsiProject2019 = {
 
 const obsiProject2017 = {
     projName: 'Teacher Search',
-    desc: 'A short-lived startup that connects schools and teachers.',
+    desc: 'A short-lived startup that connects schools and relief teachers.',
     techStack: [
         'Web Frontend: JavaScript',
         'iOS: Swift',
@@ -277,7 +277,7 @@ const resume = [
     ['div', 'Technology Stack:'],
     ['ul', obsiProject2015.techStack],
 
-    ['h2', 'Past Employment'],
+    ['h2', 'References'],
     ['h3', '2023 - 2024'],
     ['a',{href: 'https://www.orexplore.com/'}, 'Orexplore'],
     ['div', [['b', 'Position: ' + 'Software Engineer']]],
