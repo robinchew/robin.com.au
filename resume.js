@@ -3,6 +3,13 @@ const CONTRACT = 'contract';
 const FULL_TIME = 'full-time';
 const PART_TIME = 'part-time';
 
+function labelContact(contact) {
+  if (contact === ON_REQUEST) {
+    return 'Number given on request';
+  }
+  return contact;
+}
+
 function labelWorkType(type) {
   return ({
     [FULL_TIME]: 'Full-Time',
@@ -116,6 +123,11 @@ const references = [
           'PostgreSQL',
         ]]
     ],
+    reference: {
+      name: 'Mike Hawryluk',
+      position: 'Director',
+      contact: link('https://nform.com.au/contact/'),
+    },
   },
   {
     date: 'April 2021',
@@ -188,6 +200,11 @@ const references = [
         'Integration with EFTPOS terminals (C#, .NET Core)'
       ].map(s => s)],
     ],
+    reference: {
+      name: 'Tony Valent',
+      position: 'Owner',
+      contact: ON_REQUEST,
+    },
   },
   {
     date: '2018',
@@ -235,6 +252,11 @@ const references = [
         'Amazon Web Services',
       ].map(s => s)],
     ],
+    reference: {
+      name: 'Alfred Filser',
+      position: 'Owner',
+      contact: '+61 4 01662042',
+    },
   },
   {
     date: '2015',
@@ -248,6 +270,11 @@ const references = [
         'Amazon Web Services',
       ].map(s => s)],
     ],
+    reference: {
+      name: 'Daniel Lee',
+      position: 'Design Manager',
+      contact: '+61 8 64545899',
+    },
   },
   {
     date: '2016',
@@ -258,7 +285,7 @@ const references = [
     reference: {
       name: 'Chris Stoyles',
       position: 'CTO',
-      contact: '6230 2475',
+      contact: '+61 8 6230 2475',
     },
     workType: FULL_TIME,
   },
@@ -540,5 +567,5 @@ const resume = [
   ['h3', { style: { 'margin-bottom': '5px' } }, company],
   ['b', `Reference: ${name}`],
   ['div', `Position: ${position}`],
-  ['div', ['Contact: ', contact]],
+  ['div', ['Contact: ', labelContact(contact)]],
 ])));
