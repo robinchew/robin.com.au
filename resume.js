@@ -7,7 +7,7 @@ function labelWorkType(type) {
   return ({
     [FULL_TIME]: 'Full-Time',
     [PART_TIME]: 'Part-Time',
-  })[type] || 'Contract';
+  })[type] || 'Invoiced';
 }
 
 function email(url) {
@@ -34,7 +34,15 @@ const references = [
     date: 'July 2023 - June 2024',
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
-    description: ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '. (Python/Prefect, JS/Mithril/WebSocket, Oracle/APEX, Buildah/Podman)'],
+    description: [
+      'Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ',
+      ['ul', [
+        'Python/Prefect',
+        'JavaScript/WebSocket/Mithril',
+        'Oracle/APEX',
+        'Buildah/Podman',
+      ]],
+    ],
     reference: {
       name: 'Thomas Drage',
       position: 'Engineering Manager',
@@ -49,7 +57,10 @@ const references = [
     description: [
         'Semi-automatic food picking system to reduce worker pack time and eliminate human errors for ',
         ['a',{href:'https://www.dinnertwist.com.au'},'https://www.dinnertwist.com.au'],
-        ' (Erlang, JavaScript/WebSocket)'
+        ['ul', [
+          'Erlang',
+          'JavaScript/WebSocket/Mithril',
+        ]],
     ],
   },
   // coffee
@@ -57,41 +68,84 @@ const references = [
     date: 'June 2022 - October 2022',
     company: 'International Salon Supplies',
     url: 'https://www.internationalsalonsupplies.com.au/',
-    description: 'Assemble a software team to do e-commerce integration for a salon supply company. (Python, Wordpress/Woocommerce/PHP, Erlang)',
+    description: [
+      'Assemble a software team to do e-commerce integration for a salon supply company.',
+      ['ul', [
+        'Python',
+        'Wordpress/Woocommerce/PHP',
+        'Erlang',
+      ]],
+    ],
   },
   {
     date: 'September 2021 - February 2022',
     company: 'Private Client',
     url: '', // null
-    description: 'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers. (Python, JavaScript, PostgreSQL, Dart + Flutter)',
+    description: [
+      'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers.',
+      ['ul', [
+        'Python',
+        'JavaScript',
+        'PostgreSQL',
+        'Dart/Flutter (iOS & Android)',
+      ]],
+    ],
   },
   {
     date: 'June 2021 - July 2021',
     company: 'Woodside',
     url: 'https://www.woodside.com',
-    description: 'Software consulting for Woodside through a recruiter. (Python)',
+    description: [
+      'Software consulting for Woodside through a recruiter.',
+      ['ul', [
+        'Python',
+        'Excel',
+      ]],
+    ],
   },
   {
     date: 'March 2021 - June 2021',
     company: 'nForm',
     url: 'https://nform.com.au/',
     description: [
-        'Software development for nForm ',
-        ['a',{href:'https://nform.com.au/'},'https://nform.com.au/'],
-        ' (Python, JavaScript, HTML)'
+        'Software development agency.',
+        ['ul',[
+          'Python',
+          'JavaScript',
+          'HTML',
+          'PostgreSQL',
+        ]]
     ],
   },
   {
     date: 'April 2021',
     company: 'Harlsan',
     url: 'https://www.harlsan.com.au/',
-    description: 'Software consulting including Python + Tableau integration and staff training on Git.',
+    description: [
+      'Software consulting about Python + Tableau integration and staff training on Git.',
+      ['ul', [
+        'Python',
+        'Git',
+        'Tableau',
+      ]],
+    ],
   },
   {
     date: 'February 2020 - December 2020',
     company: 'Rio Tinto',
     url: 'https://www.riotinto.com/',
-    description: 'Full-time Software development contract for Rio Tinto through a recruiter. (Python/Flask/Django, JavaScript, Vagrant, Jenkins)',
+    description: [
+      'Software development contract for Rio Tinto through a recruiter.'
+      ['ul', [
+        'Python/Flask/Django',
+        'JavaScript',
+        'PostgreSQL/SQLite',
+        'Git',
+        'Vagrant',
+        'Jenkins',
+        'Jira',
+      ].map(s => s)]
+    ],
     workType: FULL_TIME,
   },
   {
@@ -104,7 +158,14 @@ const references = [
     date: '2019',
     company: 'Three Springs Technology',
     url: 'https://threespringstechnology.com/',
-    description: 'Python development and devops (Docker) of AI product for medical imaging',
+    description: [
+      'Develop devops infrastructure for AI product for medical imaging.',
+      ['ul', [
+        'Python/Flask',
+        'DICOM',
+        'Docker',
+      ].map(s => s)]
+    ],
   },
   {
     date: '2019',
@@ -132,7 +193,14 @@ const references = [
     date: '2018',
     company: 'Spring Tech (now called CorePlan)',
     url: 'https://www.coreplan.io/',
-    description: 'Design and build web applications with Python and JavaScript/Mithril to analyse and visualise data of mining operations stored in MSSQL database.',
+    description: [
+      'Design and build web applications to analyse and visualise data of mining operations.',
+      ['ul', [
+        'Python/Django',
+        'JavaScript/Mithril',
+        'MSSQL',
+      ].map(s => s)]
+    ],
     reference: {
       name: 'Alex Goulios',
       position: 'Director',
@@ -432,6 +500,11 @@ const employment2012 = {
 };
 
 const resume = [
+    ['style', `
+      ul {
+        margin-top: 8px;
+      }
+    `],
     ['h1', 'Robin Chew'],
     ['div', 'Software Engineer'],
     ['div', 'Perth'],
@@ -455,7 +528,7 @@ const resume = [
     ['ul', talks],
     ['h2', 'Work as Senior Software Engineer'],
 ].concat(unnest(references.map(({ date, company, url, description, workType }) => [
-  ['h3', { style: { 'margin-bottom': 0 } }, `${company} (${labelWorkType(workType)})`],
+  ['h3', { style: { 'margin-bottom': 0 } }, [company, ['span', { style: { 'margin-left': '4px', 'font-size': '0.8em' } }, `(${labelWorkType(workType)})`]]],
   ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
   ['b', { style: { 'margin-left': '10px' } }, date],
   ['div', { style: { 'margin-left': '10px' } }, description],
