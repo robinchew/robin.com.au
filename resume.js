@@ -1,3 +1,94 @@
+function unnest(list){
+  // https://github.com/selfrefactor/rambda/blob/master/src/unnest.js
+  return list.reduce((acc, item) => {
+    if (Array.isArray(item)){
+      return [ ...acc, ...item ]
+    }
+
+    return [ ...acc, item ]
+  }, [])
+}
+
+const references = [
+  {
+    date: 'July 2023 - June 2024',
+    company: 'Orexplore Technologies',
+    url: 'https://www.orexplore.com',
+    description: ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '. (Python/Prefect, JS/Mithril/WebSocket, Oracle/APEX, Buildah/Podman)'],
+  },
+  {
+    date: 'June 2022 - October 2023',
+    company: 'Dinner Twist',
+    url: 'https://www.dinnertwist.com.au/',
+    description: [
+        'Semi-automatic food picking system to reduce worker pack time and eliminate human errors for ',
+        ['a',{href:'https://www.dinnertwist.com.au'},'https://www.dinnertwist.com.au'],
+        ' (Erlang, JavaScript/WebSocket)'
+    ],
+  },
+  // coffee
+  {
+    date: 'June 2022 - October 2022',
+    company: 'International Salon Supplies',
+    url: 'https://www.internationalsalonsupplies.com.au/',
+    description: 'Assemble a software team to do e-commerce integration for a salon supply company. (Python, Wordpress/Woocommerce/PHP, Erlang)',
+  },
+  {
+    date: 'September 2021 - February 2022',
+    company: 'Private Client',
+    url: '', // null
+    description: 'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers. (Python, JavaScript, PostgreSQL, Dart + Flutter)',
+  },
+  {
+    date: 'June 2021 - July 2021',
+    company: 'Woodside',
+    url: 'https://www.woodside.com',
+    description: 'Software consulting for Woodside through a recruiter. (Python)',
+  },
+  {
+    date: 'March 2021 - June 2021',
+    company: 'nForm',
+    url: 'https://nform.com.au/',
+    description: [
+        'Software development for nForm ',
+        ['a',{href:'https://nform.com.au/'},'https://nform.com.au/'],
+        ' (Python, JavaScript, HTML)'
+    ],
+  },
+  {
+    date: 'April 2021',
+    company: 'Harlsan',
+    url: 'https://www.harlsan.com.au/',
+    description: 'Software consulting including Python + Tableau integration and staff training on Git.',
+  },
+  {
+    date: 'February 2020 - December 2020',
+    company: 'Rio Tinto',
+    url: 'https://www.riotinto.com/',
+    description: 'Full-time Software development contract for Rio Tinto through a recruiter. (Python/Flask/Django, JavaScript, Vagrant, Jenkins)',
+  },
+  {
+    date: '2019',
+    company: 'All Rentals',
+    url: 'https://allrentals.com.au/',
+    description: 'Django application that lists properties for sale/rental.',
+  },
+  {
+    date: '2019',
+    company: 'Three Springs Technology',
+    url: 'https://threespringstechnology.com/',
+    description: 'Python development and devops (Docker) of AI product for medical imaging',
+  },
+  {
+    date: '2019',
+    company: 'TyreConnect',
+    url: 'https://tyreconnect.com.au/',
+    description: 'Elixir Development',
+  },
+  // nemo
+  // scratchc at montessory
+];
+
 const expDesciption = [
     "I've been programming for more than 10 years professionally, developing mostly in Erlang,  Python and JavaScript. I've been heavily influenced by functional programming languages such as Clojure. Whichever programming language I use nowadays, I write more \"value-oriented\" (as described by Rich Hickey ",
     ['a',{href:'https://youtu.be/-6BsiVyC1kM'},'https://youtu.be/-6BsiVyC1kM'],
@@ -194,7 +285,7 @@ const obsiProject2015 = {
 };
 
 const employment2018 = {
-    endDate: 'a few months',
+    endDate: '', // null
     companyName: 'Spring Tech (now called CorePlan)',
     url: 'https://springtech.io',
     position: 'Senior Software Developer',
@@ -242,22 +333,15 @@ const resume = [
     ['ul', skills],
     ['h2', 'Talks/Workshops'],
     ['ul', talks],
-    ['h2', 'Contract Work'],
-    ['h3', '2023'],
-    ['ul', contract2023],
-    ['h3', '2022'],
-    ['ul', contract2022],
-    ['h3', '2021'],
-    ['ul', quotedWork2021.concat(partTime2021)],
-    ['h3', '2020'],
-    ['ul', contract2020],
-    ['h3', '2019'],
-    ['ul', contract2019],
-    ['h3', '2018'],
-    ['ul', contract2018],
-
-    ['h2', 'Projects developed under my OBSI business'],
-    ['div', obsiProjDesc],
+    ['h2', 'Contract Work as a Software Engineer'],
+].concat(unnest(references.map(({ date, company, url, description }) => [
+  ['h3', { style: { 'margin-bottom': 0 } }, company],
+  ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
+  ['b', { style: { 'margin-left': '10px' } }, date],
+  ['div', { style: { 'margin-left': '10px' } }, description],
+])))
+.concat([
+    ['h2', 'Projects developed under my previous business'],
     ['h3', '2019 - ' + obsiProject2019.projName],
     ['div', obsiProject2019.desc],
     ['div', 'Technology Stack:'],
@@ -300,4 +384,4 @@ const resume = [
     ['div', [['b', 'Position: ' + employment2012.position]]],
     ['b', 'Reference: ' + employment2012.reference],
     ['div', employment2012.desc]
-];
+]);
