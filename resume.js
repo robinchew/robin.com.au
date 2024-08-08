@@ -69,6 +69,11 @@ const references = [
           'JavaScript/WebSocket/Mithril',
         ]],
     ],
+    reference: {
+      name: 'Chris Tistrand',
+      position: 'Director',
+      contact: '+61 8 6102 2727',
+    },
   },
   // coffee
   {
