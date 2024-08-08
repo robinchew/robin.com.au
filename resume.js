@@ -1,3 +1,23 @@
+const ON_REQUEST = null;
+const CONTRACT = 'contract';
+const FULL_TIME = 'full-time';
+const PART_TIME = 'part-time';
+
+function labelWorkType(type) {
+  return ({
+    [FULL_TIME]: 'Full-Time',
+    [PART_TIME]: 'Part-Time',
+  })[type] || 'Contract';
+}
+
+function email(url) {
+  return ['a', { href: 'mailto:' + url }, url];
+}
+
+function link(url) {
+  return ['a', { href: url }, url];
+}
+
 function unnest(list){
   // https://github.com/selfrefactor/rambda/blob/master/src/unnest.js
   return list.reduce((acc, item) => {
@@ -15,6 +35,12 @@ const references = [
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
     description: ['Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ', ['a', { href: 'https://www.orexplore.com/' }, 'Orexplore'], '. (Python/Prefect, JS/Mithril/WebSocket, Oracle/APEX, Buildah/Podman)'],
+    reference: {
+      name: 'Thomas Drage',
+      position: 'Engineering Manager',
+      // contact: email('drage@iinet.net.au'),
+      contact: link('https://www.linkedin.com/in/thomas-drage/'),
+    },
   },
   {
     date: 'June 2022 - October 2023',
@@ -66,6 +92,7 @@ const references = [
     company: 'Rio Tinto',
     url: 'https://www.riotinto.com/',
     description: 'Full-time Software development contract for Rio Tinto through a recruiter. (Python/Flask/Django, JavaScript, Vagrant, Jenkins)',
+    workType: FULL_TIME,
   },
   {
     date: '2019',
@@ -104,8 +131,14 @@ const references = [
   {
     date: '2018',
     company: 'Spring Tech (now called CorePlan)',
-    url: 'https://springtech.io/',
+    url: 'https://www.coreplan.io/',
     description: 'Design and build web applications with Python and JavaScript/Mithril to analyse and visualise data of mining operations stored in MSSQL database.',
+    reference: {
+      name: 'Alex Goulios',
+      position: 'Director',
+      contact: '+61 8 6365 4488',
+    },
+    workType: PART_TIME,
   },
   {
     date: '2017',
@@ -148,6 +181,32 @@ const references = [
       ].map(s => s)],
     ],
   },
+  {
+    date: '2016',
+    company: 'SignIQ (now called Last Yard)',
+    url: 'https://www.signiq.com',
+    position: 'Senior Software Developer',
+    description: "SignIQ is a leading Retail Ticketing company with customers across Australia and New Zealand. Senior Software Developer responsible for developing web applications in Python, Django, JavaScript and React.",
+    reference: {
+      name: 'Chris Stoyles',
+      position: 'CTO',
+      contact: '6230 2475',
+    },
+    workType: FULL_TIME,
+  },
+  {
+    date: '2012 - 2013',
+    company: 'Harmonic New Media',
+    url: 'http://harmonic.com.au/',
+    position: 'Senior Software Developer',
+    description: "A Perth based New Media company, responsible for building sports-tipping and e-commerce web applications used in large scale by large clients.",
+    reference: {
+      name: 'Craig Harman',
+      position: 'Director',
+      contact: '9227 0003',
+    },
+    workType: FULL_TIME,
+  }
 ];
 
 const expDesciption = [
@@ -394,34 +453,19 @@ const resume = [
     ['ul', skills],
     ['h2', 'Talks/Workshops'],
     ['ul', talks],
-    ['h2', 'Contract Work as a Software Engineer'],
-].concat(unnest(references.map(({ date, company, url, description }) => [
-  ['h3', { style: { 'margin-bottom': 0 } }, company],
+    ['h2', 'Work as Senior Software Engineer'],
+].concat(unnest(references.map(({ date, company, url, description, workType }) => [
+  ['h3', { style: { 'margin-bottom': 0 } }, `${company} (${labelWorkType(workType)})`],
   ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
   ['b', { style: { 'margin-left': '10px' } }, date],
   ['div', { style: { 'margin-left': '10px' } }, description],
 ])))
 .concat([
-    ['h2', 'References'],
-    ['a',{href: 'https://www.orexplore.com/'}, 'Orexplore'],
-    ['div', [['b', 'Position: ' + 'Software Engineer']]],
-    ['b', 'Reference: ' + 'Thomas Drage (Engineering Manager) (drage@iinet.net.au)'],
-    ['div', 'Phone number on request'],
-    ['div', [['a', {href: 'https://www.linkedin.com/in/thomas-drage/'}, 'https://www.linkedin.com/in/thomas-drage/']]],
-
-    ['h3', '2018 ' + employment2018.endDate + ': ' + employment2018.companyName],
-    ['a',{href:employment2018.url},employment2018.url],
-    ['div', [['b', 'Position: ' + employment2018.position]]],
-    ['b', 'Reference: ' + employment2018.reference],
-    ['div', employment2018.desc],
-    ['h3', '2014 - ' + employment2014.endDate + ': ' + employment2014.companyName],
-    ['a',{href:employment2014.url},employment2014.url],
-    ['div', [['b', 'Position: ' + employment2014.position]]],
-    ['b', 'Reference: ' + employment2014.reference],
-    ['div', employment2014.desc],
-    ['h3', '2012 - ' + employment2012.endDate + ': ' + employment2012.companyName],
-    ['a',{href:employment2012.url},employment2012.url],
-    ['div', [['b', 'Position: ' + employment2012.position]]],
-    ['b', 'Reference: ' + employment2012.reference],
-    ['div', employment2012.desc]
-]);
+  ['h2', 'References'],
+])
+.concat(unnest(references.filter(({ reference }) => reference).map(({ company, reference: { name, position, contact } }) => [
+  ['h3', { style: { 'margin-bottom': '5px' } }, company],
+  ['b', `Reference: ${name}`],
+  ['div', `Position: ${position}`],
+  ['div', ['Contact: ', contact]],
+])));
