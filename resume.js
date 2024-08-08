@@ -86,7 +86,68 @@ const references = [
     description: 'Elixir Development',
   },
   // nemo
-  // scratchc at montessory
+  // scratch at montessory
+  {
+    date: '2019',
+    company: 'UFO Star Station',
+    url: 'https://maps.app.goo.gl/PeQjvwFxsC63wf1L9',
+    description: [
+      'Develop an offline KDS (Kitchen Display System) web application for displaying orders for restaurant kitchens pushed from Square POS.',
+      ['ul', [
+        'UI (Javascript/Mithril)',
+        'API Server (Erlang/Cowboy)',
+        'SQL (No ORM)',
+        'Integration with EFTPOS terminals (C#, .NET Core)'
+      ].map(s => s)],
+    ],
+  },
+  {
+    date: '2018',
+    company: 'Spring Tech (now called CorePlan)',
+    url: 'https://springtech.io/',
+    description: 'Design and build web applications with Python and JavaScript/Mithril to analyse and visualise data of mining operations stored in MSSQL database.',
+  },
+  {
+    date: '2017',
+    company: 'Teacher Search',
+    url: '', // null
+    description: [
+      'A short-lived startup that connects schools and relief teachers.',
+      ['ul', [
+        'Web Frontend: JavaScript',
+        'iOS: Swift',
+        'Android: Kotlin',
+        'Backend: Python'
+      ].map(s => s)],
+    ],
+  },
+  {
+    date: '2016',
+    company: 'Ciao Bella Nail Salon',
+    url: 'https://www.facebook.com/SNSnailsCanningVale/', // null
+    description: [
+      `This beauty salon has 2 branches and staff are expected to move between those branches with clients who are willing to move between branches to access the service in high demand. The business owner uses OBSI's web application with a timetable interface in order to create and occasionally move client/staff bookings between branches in order to satisfy demand.`,
+      ['ul', [
+        'API Server (Python/Django)',
+        'UI (Clojurescript/Reagent, Javascript/React)',
+        'Custom CI server (Go)',
+        'Amazon Web Services',
+      ].map(s => s)],
+    ],
+  },
+  {
+    date: '2015',
+    company: 'Lightcube Designs',
+    url: 'https://bia.lighting/', // null
+    description: [
+      'A custom quoting system with floor plan drawing integration saves the business owner time to create both quotes and floor plans simultaneously on the same web application with guaranteed synchronised quote data that matches the drawings. This saves the headache of using 2 separate applications for quoting and floor plan design, and manually keeping them in sync for every client with ever-changing requirements.',
+      ['ul', [
+        'API Server (Python/Django)',
+        'UI (Javascript/jQuery/Canvas)',
+        'Amazon Web Services',
+      ].map(s => s)],
+    ],
+  },
 ];
 
 const expDesciption = [
@@ -341,28 +402,7 @@ const resume = [
   ['div', { style: { 'margin-left': '10px' } }, description],
 ])))
 .concat([
-    ['h2', 'Projects developed under my previous business'],
-    ['h3', '2019 - ' + obsiProject2019.projName],
-    ['div', obsiProject2019.desc],
-    ['div', 'Technology Stack:'],
-    ['ul', obsiProject2019.techStack],
-    ['h3', '2017 - ' + obsiProject2017.projName],
-    ['div', obsiProject2017.desc],
-    ['div', 'Technology Stack:'],
-    ['ul', obsiProject2017.techStack],
-    ['h3', '2016 - ' + obsiProject2016.projName],
-    ['b', 'Owner: ' + obsiProject2016.owner],
-    ['div', obsiProject2016.desc],
-    ['div', 'Technology Stack:'],
-    ['ul', obsiProject2016.techStack],
-    ['h3', '2015 - ' + obsiProject2015.projName],
-    ['b', 'Owner: ' + obsiProject2015.owner],
-    ['div', obsiProject2015.desc],
-    ['div', 'Technology Stack:'],
-    ['ul', obsiProject2015.techStack],
-
     ['h2', 'References'],
-    ['h3', '2023 - 2024'],
     ['a',{href: 'https://www.orexplore.com/'}, 'Orexplore'],
     ['div', [['b', 'Position: ' + 'Software Engineer']]],
     ['b', 'Reference: ' + 'Thomas Drage (Engineering Manager) (drage@iinet.net.au)'],
