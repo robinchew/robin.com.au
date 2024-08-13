@@ -44,9 +44,10 @@ const references = [
     description: [
       'Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ',
       ['ul', [
-        'Python/Prefect',
+        'Python/Flask/Django',
         'JavaScript/WebSocket/Mithril',
         'Oracle/APEX',
+        'Data Workflow: Prefect',
         'Container: Buildah/Podman',
       ]],
     ],
