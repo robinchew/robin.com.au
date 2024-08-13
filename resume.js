@@ -556,7 +556,7 @@ const resume = [
         margin-top: 8px;
       }
     `],
-    ['h1', 'Robin Chew'],
+    ['h1', 'Ruoh Pin (Robin) Chew'],
     ['div', 'Software Engineer'],
     ['div', 'Perth'],
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
