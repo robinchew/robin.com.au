@@ -123,7 +123,7 @@ const references = [
         'Software development agency.',
         ['ul',[
           'Python',
-          'JavaScript',
+          'JavaScript/Plotly',
           'HTML',
           'PostgreSQL',
         ]]
@@ -155,7 +155,7 @@ const references = [
       'Software development contract for Rio Tinto through a recruiter.'
       ['ul', [
         'Python/Flask/Django',
-        'JavaScript',
+        'JavaScript/Plotly',
         'PostgreSQL/SQLite',
         'Git',
         'Vagrant',
