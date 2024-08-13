@@ -62,8 +62,7 @@ const references = [
     company: 'Dinner Twist',
     url: 'https://www.dinnertwist.com.au/',
     description: [
-        'Semi-automatic food picking system to reduce worker pack time and eliminate human errors for ',
-        ['a',{href:'https://www.dinnertwist.com.au'},'https://www.dinnertwist.com.au'],
+        'Semi-automatic food picking system to direct workers pack in a timely manner and eliminate human errors.',
         ['ul', [
           'Erlang',
           'JavaScript/WebSocket/Mithril',
