@@ -65,7 +65,8 @@ const references = [
         'Semi-automatic food picking system to direct workers pack in a timely manner and eliminate human errors.',
         ['ul', [
           'Erlang',
-          'JavaScript/WebSocket/Mithril',
+          'Reactive Programming with JavaScript, Mithril and Flyd',
+          'WebSockets',
         ]],
     ],
     reference: {
@@ -95,9 +96,9 @@ const references = [
     description: [
       'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers.',
       ['ul', [
-        'Python',
-        'JavaScript',
-        'PostgreSQL',
+        'Python/Flask',
+        'Reactive Programming with JavaScript, Mithril and Flyd',
+        'PostgreSQL + PL/pgSQL',
         'Dart/Flutter (iOS & Android)',
       ]],
     ],
