@@ -47,7 +47,7 @@ const references = [
         'Python/Prefect',
         'JavaScript/WebSocket/Mithril',
         'Oracle/APEX',
-        'Buildah/Podman',
+        'Container: Buildah/Podman',
       ]],
     ],
     reference: {
@@ -231,6 +231,24 @@ const references = [
     workType: PART_TIME,
   },
   {
+    date: '2018',
+    company: 'Megatix',
+    url: 'https://megatix.com.au/',
+    description: [
+      'Develop on the event ticketing site under the team lead.',
+      ['ul', [
+        'PHP/Laravel',
+        'JavaScript/Vue',
+        'PostgreSQL',
+      ].map(s => s)]
+    ],
+    reference: {
+      name: 'Matt Harley',
+      position: 'Lead Web Developer',
+      contact: link('https://www.linkedin.com/in/mattharley/'),
+    },
+  },
+  {
     date: '2017',
     company: 'Teacher Search',
     url: '', // null
@@ -329,7 +347,8 @@ const familiarStacks = [
     'Elixir + Phoenix',
     'Kotlin',
     'Swift',
-    'Dart + Flutter'
+    'Dart + Flutter',
+    'PHP + Laravel',
 ];
 const lessFamiliar = [
     'C#/.NET Core',
