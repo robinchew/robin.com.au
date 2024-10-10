@@ -1,3 +1,6 @@
+// Add photo of home setup
+// Add hobbies
+
 const ON_REQUEST = null;
 const CONTRACT = 'contract';
 const FULL_TIME = 'full-time';
@@ -14,7 +17,7 @@ function labelWorkType(type) {
   return ({
     [FULL_TIME]: 'Full-Time',
     [PART_TIME]: 'Part-Time',
-  })[type] || 'Invoiced';
+  })[type] || 'Contract';
 }
 
 function email(url) {
@@ -45,7 +48,7 @@ const references = [
       'Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ',
       ['ul', [
         'Python/Flask/Django',
-        'JavaScript/WebSocket/Mithril',
+        'JavaScript/WebSocket/Mithril/React',
         'Oracle/APEX',
         'Data Workflow: Prefect',
         'Container: Buildah/Podman',
@@ -54,7 +57,8 @@ const references = [
     reference: {
       name: 'Thomas Drage',
       position: 'Engineering Manager',
-      // contact: email('drage@iinet.net.au'),
+      email: email('drage@iinet.net.au'),
+      phone: '0409 916 925',
       contact: link('https://www.linkedin.com/in/thomas-drage/'),
     },
   },
