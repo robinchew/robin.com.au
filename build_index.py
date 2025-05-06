@@ -106,7 +106,7 @@ print(render_to_html(
 file_links = {
     'my_photo': 'robin.com.au-my-photo.png',
     'email_image': 'me-at-robin-com-au.png',
-    'resume_pdf': 'resume-2024-08-13c.pdf',
+    'resume_pdf': 'resume-2025-05-06.pdf',
     'social_coding_image': 'monday-workshop-main-image.jpg',
 }
 

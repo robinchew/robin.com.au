@@ -41,6 +41,25 @@ function unnest(list){
 
 const references = [
   {
+    date: 'October 2024',
+    company: 'CADLINK',
+    description: [
+      'Program ESP32 to periodically send data from sensors to Azure.',
+      ['ul', [
+        'Micropython',
+        'Erlang/AtomVM',
+        'JavaScript',
+        'Azure Blobs',
+      ]],
+    ],
+    reference: {
+      name: 'Mark Kaye',
+      position: 'Director',
+      email: email('marc@cadlink.com.au'),
+      phone: '0419 921 543',
+    },
+  },
+  {
     date: 'July 2023 - June 2024',
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
