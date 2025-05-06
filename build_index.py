@@ -1,5 +1,6 @@
 import base64
 import io
+import os
 from textwrap import dedent
 from PIL import Image, ImageColor
 
@@ -102,6 +103,16 @@ print(render_to_html(
             '- ', 'name'))))
 '''
 
+file_links = {
+    'my_photo': 'robin.com.au-my-photo.png',
+    'email_image': 'me-at-robin-com-au.png',
+    'resume_pdf': 'resume-2024-08-13c.pdf',
+    'social_coding_image': 'monday-workshop-main-image.jpg',
+}
+
+for link in file_links.values():
+    assert os.path.isfile(link)
+
 def template(testimonial_section):
     roof = create_roof()
     top_tile = layer(roof.size, [
@@ -148,8 +159,8 @@ def template(testimonial_section):
         'tile_image_code': tile_image_code,
         'testimonial_section': testimonial_section,
         'top_list': custom_list([
-            ('', '''
-            <img src="robin.com.au-my-photo.png" title="photo of me" />
+            ('', f'''
+            <img src="{file_links['my_photo']}" title="photo of me" />
             <a href="https://www.linkedin.com/in/robin-chew-04482a48/" style="display:inline-block;width:70px;height:70px;margin:0 40px">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" class="mercado-match" focusable="false" fill="rgb(10, 102, 194)
     ">
@@ -158,13 +169,13 @@ def template(testimonial_section):
             </a>
             <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
             '''),
-            ('', '<span><img style="vertical-align:middle;margin-right:20px" src="me-at-robin-com-au.png" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
-            ('', '<a style="padding:10px 20px;background:pink;border-radius:5px" href="resume-2023.pdf">Resume</a>'),
-            ('', dedent('''\
+            ('', f'<span><img style="vertical-align:middle;margin-right:20px" src="{file_links['email_image']}" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
+            ('', f'<a style="padding:10px 20px;background:pink;border-radius:5px" href="{file_links['resume_pdf']}">Resume</a>'),
+            ('', dedent(f'''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="http://workshop.robin.com.au/chat">Social Coding</a> every Thursday (except holidays) at 5pm - 7pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
-                <a  href="monday-workshop-main-image.jpg">
-                    <img src="monday-workshop-main-image.jpg" style="vertical-align:middle;margin-left:10px;height:70px" />
+                <a href="{file_links['social_coding_image']}">
+                    <img src="{file_links['social_coding_image']}" style="vertical-align:middle;margin-left:10px;height:70px" />
                 </a>
             </span>
             ''')),
@@ -225,21 +236,21 @@ def build_index():
                 'Megatix',
                 "I've known Robin to be a talented programmer and he has now translated his skills to train and recruit other talents for our dev team. Happy with his work!",
                 'https://www.linkedin.com/in/mattharley/',
-                'https://media.licdn.com/dms/image/C5603AQEK599HSEAQDA/profile-displayphoto-shrink_200_200/0/1631063160378?e=1686787200&v=beta&t=3sOAMnyX1U4U9uuH0zVvAUCVM6l6bU7545Iw-NRh5Ns',
+                None,
             ),
             (
                 'Andy Lam Yu',
                 'Murdoch Grad',
                 'Robin gave me an excellent opportunity to confirm my understanding of programming by providing feedback on areas I lacked while building some work experience.',
                 'https://www.linkedin.com/in/andy-lam-yu-52820b160/',
-                'https://media.licdn.com/dms/image/C5603AQGhwmf3yaJARA/profile-displayphoto-shrink_200_200/0/1638935450636?e=1686787200&v=beta&t=tN6nSHhFz37OsyWiu5MPOeE0N1m96YkL1ELBHnqGukA',
+                None,
             ),
             (
                 'Jay Xie',
                 'Murdoch Grad',
                 "Robin is very knowledgeable and experienced in Python programming, and is very fun to work with. Robin taught me a lot of programming concepts I couldn't learn from college so he is also a good teacher.",
                 'https://www.linkedin.com/in/jay-xie-11a732230/',
-                'https://scontent.fper8-1.fna.fbcdn.net/v/t1.6435-1/120260725_1582558508594212_5469676501295061332_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Tnzxgw2_yxQAX-67Qmf&_nc_ht=scontent.fper8-1.fna&oh=00_AfDVd8xk7CLDgoUPpe_GRC3X5pte71CqcGQzVn3Xr55rxQ&oe=64619CDD',
+                None,
             ),
         ]) + \
         render_testimonials([
@@ -248,7 +259,7 @@ def build_index():
                     'Murdoch Grad',
                     "Robin is a great and knowledgeable mentor in software development. His approach to mentoring allowed me to not only learn from him but grow independently and allow me to build up experience with practical projects as a software developer",
                     'https://www.linkedin.com/in/andrew-ho-sy/',
-                    'https://media.licdn.com/dms/image/C5603AQE_rEinoZQfcA/profile-displayphoto-shrink_200_200/0/1602740931307?e=1684972800&v=beta&t=Eju0jV4cp3grl-n_4naDJX8vdEI-AR5T3L6dle1Zsf4'
+                    None
                 ),
                 (
                     'Ryan Tarpey',
