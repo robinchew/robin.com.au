@@ -2,10 +2,12 @@ import os
 import sh
 import subprocess
 
+from eluthia.constants import GIT, UNSET
 from eluthia.defaults import control
 from eluthia.decorators import file, chmod
 from eluthia.functional import pipe
 from eluthia.py_configs import deb822, nginx
+from eluthia import build
 
 def nginx_conf(full_path, package_name, apps):
     return (
@@ -85,3 +87,17 @@ def get_package_tree(package_name, apps):
             },
         },
     }
+
+if __name__ == '__main__':
+    build(
+        lambda _: os.path.dirname(__file__),
+        {
+            'folder_type': GIT,
+            'folder': './',
+            'build_module_relpath': 'build.py',
+            'https_domains': ['www.robin.com.au'],
+            'env': {
+                'VENV_BUILD_PATH': UNSET,
+            },
+        },
+)
