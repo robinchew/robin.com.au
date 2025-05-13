@@ -388,7 +388,7 @@ const skills = [
     'Bash Scripting',
     'HTML/CSS',
     'Photoshop',
-    'Docker, LXC, Buildah, VirtualBox/Vagrant, VMWare',
+    'Docker, LXC, Buildah/Podman, VirtualBox/Vagrant, VMWare',
     'AWS services: EC2, S3, Lambda, DynamoDB, Elastic Beanstalk, etc.',
 ];
 
@@ -591,7 +591,8 @@ const resume = [
     ['p',
       ['And my public code at ', ['a', { href: 'https://github.com/robinchew' }, 'https://github.com/robinchew'], '.'],
     ],
-    ['h2', 'Experience'],
+    ['img', { src: 'computer-setup-2025.jpg', style: 'width: 100%' }],
+    ['h2', 'Experience as a Software Engineer'],
     ['div', expDesciption],
     ['h2', 'Technology Stack'],
     ['h3', 'Frontend'],
@@ -606,7 +607,7 @@ const resume = [
     ['ul', skills],
     ['h2', 'Talks/Workshops'],
     ['ul', talks],
-    ['h2', 'Work as Senior Software Engineer'],
+    ['h2', 'Past Work'],
 ].concat(unnest(references.map(({ date, company, url, description, workType }) => [
   ['h3', { style: { 'margin-bottom': 0 } }, [company, ['span', { style: { 'margin-left': '4px', 'font-size': '0.8em' } }, `(${labelWorkType(workType)})`]]],
   ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
