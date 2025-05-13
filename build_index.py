@@ -108,6 +108,7 @@ file_links = {
     'email_image': 'me-at-robin-com-au.png',
     'resume_pdf': 'resume-2025-05-06.pdf',
     'social_coding_image': 'monday-workshop-main-image.jpg',
+    'computer_setup_photo': 'computer-setup-2025.jpg',
 }
 
 for link in file_links.values():
@@ -151,13 +152,14 @@ def template(testimonial_section):
         </style>
 
         %(top_list)s
-
+        %(computer_photo)s
         %(testimonial_section)s
 
         %(bottom_list)s
     ''' % {
         'tile_image_code': tile_image_code,
         'testimonial_section': testimonial_section,
+        'computer_photo': render_to_html(('img', {'src': file_links['computer_setup_photo'], 'style': 'width:100%;'})),
         'top_list': custom_list([
             ('', f'''
             <img src="{file_links['my_photo']}" title="photo of me" />

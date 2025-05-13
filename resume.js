@@ -64,7 +64,7 @@ const references = [
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
     description: [
-      'Automate data processing for data scientists and geologists. Build web UI for rock scanners. For ',
+      'Automate data processing for data scientists and geologists. Build web UI for rock scanners.',
       ['ul', [
         'Python/Flask/Django',
         'JavaScript/WebSocket/Mithril/React',
