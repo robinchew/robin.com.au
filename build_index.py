@@ -109,6 +109,7 @@ file_links = {
     'resume_pdf': 'resume-2025-05-06.pdf',
     'social_coding_image': 'monday-workshop-main-image.jpg',
     'computer_setup_photo': 'computer-setup-2025.jpg',
+    'build_index_py': 'build_index.py',
 }
 
 for link in file_links.values():
@@ -149,6 +150,12 @@ def template(testimonial_section):
                 content: '';
                 clear: both;
             }
+            .cover-bg {
+                background-image: url(%(computer_setup)s);
+                height: 400px;
+                background-size: cover;
+                background-position-y: 20%%;
+            }
         </style>
 
         %(top_list)s
@@ -157,9 +164,10 @@ def template(testimonial_section):
 
         %(bottom_list)s
     ''' % {
+        'computer_setup': 'computer-setup-2025.jpg',
         'tile_image_code': tile_image_code,
         'testimonial_section': testimonial_section,
-        'computer_photo': render_to_html(('img', {'src': file_links['computer_setup_photo'], 'style': 'width:100%;'})),
+        'computer_photo': render_to_html(('div', {'class': 'cover-bg'})),
         'top_list': custom_list([
             ('', f'''
             <img src="{file_links['my_photo']}" title="photo of me" />
@@ -181,7 +189,7 @@ def template(testimonial_section):
                 </a>
             </span>
             ''')),
-            ('', '<span><a href="build_index.py">Python Code</a> <span class="small">that generated this index page</span></span>'),
+            ('', '<span><a href="{}">Python Code</a> <span class="small">that generated this index page</span></span>'.format(file_links['build_index_py'])),
         ]),
         'bottom_list': custom_list([
             ('', '''<a href="http://music.robin.com.au">Music</a>
