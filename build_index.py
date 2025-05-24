@@ -163,6 +163,10 @@ def template(testimonial_section):
         %(testimonial_section)s
 
         %(bottom_list)s
+        <div style="padding-top:200px;padding-bottom:50px;text-align:center">
+            Below is my old company website <a href="http://www.obsi.com.au">http://www.obsi.com.au</a> contained in an iframe.
+        </div>
+        <iframe src="http://obsi.com.au" title="OBSI" style="width:100%%;height:3200px;overflow:hidden"></iframe>
     ''' % {
         'computer_setup': 'computer-setup-2025.jpg',
         'tile_image_code': tile_image_code,
@@ -201,7 +205,6 @@ def template(testimonial_section):
                 <a href="files/2022-12-12 19.53.49.ogg">Sample sound file OGG</a>
             </span>
             '''),
-            ('', '<span><a href="http://obsi.com.au">OBSI PTY LTD</a> (closed)</span>'),
         ])
     })
 
