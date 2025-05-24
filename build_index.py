@@ -106,7 +106,7 @@ print(render_to_html(
 file_links = {
     'my_photo': 'robin.com.au-my-photo.png',
     'email_image': 'me-at-robin-com-au.png',
-    'resume_pdf': 'resume-2025-05-06.pdf',
+    'resume_pdf': 'resume-2025-05-24.pdf',
     'social_coding_image': 'monday-workshop-main-image.jpg',
     'computer_setup_photo': 'computer-setup-2025.jpg',
     'build_index_py': 'build_index.py',
@@ -180,7 +180,7 @@ def template(testimonial_section):
             <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
             '''),
             ('', f'<span><img style="vertical-align:middle;margin-right:20px" src="{file_links['email_image']}" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
-            ('', f'<a style="padding:10px 20px;background:pink;border-radius:5px" href="{file_links['resume_pdf']}">Resume</a>'),
+            ('', f'<a style="font-size:1.5em;letter-spacing:0.2em;text-decoration:none;padding:10px 20px;background:pink;border-radius:5px" href="{file_links['resume_pdf']}">RESUME</a>'),
             ('', dedent(f'''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="http://workshop.robin.com.au/chat">Social Coding</a> every Thursday (except holidays) at 5pm - 7pm at <a href="https://goo.gl/maps/8tYcJj9xdGUjbU257">Hillview Hub</a>
