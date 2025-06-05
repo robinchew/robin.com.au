@@ -12,7 +12,7 @@ html_file=$1
 chrome_bin=${CHROME_BIN:-"chromium"}
 
 # Run Chrome Headless in headless mode to generate the PDF
-pdf_output="${html_file%.*}-"`date +%Y-%m-%d`".pdf";
+pdf_output="robin-chew-${html_file%.*}-"`date +%Y-%m-%d`".pdf";
 input=file://`readlink -f $html_file`;
 echo $input;
 eval $chrome_bin  \
