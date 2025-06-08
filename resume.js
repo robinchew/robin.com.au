@@ -375,19 +375,19 @@ const backendStacks = [
     'Erlang + Cowboy',
     'Clojure',
     'ClojureScript'
-];
+].map(s => ['li', s]);
 const familiarStacks = [
     'Elixir + Phoenix',
     'Kotlin',
     'Swift',
     'Dart + Flutter',
     'PHP + Laravel',
-];
+].map(s => ['li', s]);
 const lessFamiliar = [
     'C#/.NET Core',
     'Java',
     'Go'
-];
+].map(s => ['li', s]);
 
 const skills = [
     'Arch Linux, Ubuntu, Debian, Red Hat, Slackware',
@@ -399,7 +399,7 @@ const skills = [
     'Photoshop',
     'Docker, LXC, Buildah/Podman, VirtualBox/Vagrant, VMWare',
     'AWS services: EC2, S3, Lambda, DynamoDB, Elastic Beanstalk, etc.',
-];
+].map(s => ['li', s]);
 
 const talks = [
     {
