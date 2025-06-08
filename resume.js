@@ -33,6 +33,10 @@ function link(url) {
   return ['a', { href: url }, url];
 }
 
+function vdomList(arr) {
+  return ['ul', arr.map(i => ['li', i])];
+}
+
 function unnest(list){
   // https://github.com/selfrefactor/rambda/blob/master/src/unnest.js
   return list.reduce((acc, item) => {
@@ -50,12 +54,12 @@ const references = [
     company: 'CADLINK',
     description: [
       'Program ESP32 to periodically send data from sensors to Azure.',
-      ['ul', [
+      vdomList([
         'Micropython',
         'Erlang/AtomVM',
         'JavaScript',
         'Azure Blobs',
-      ]],
+      ]),
     ],
     reference: {
       name: 'Mark Kaye',
@@ -70,13 +74,13 @@ const references = [
     url: 'https://www.orexplore.com',
     description: [
       'Automate data processing (ETL) for data scientists and geologists. Build web UI for loading data into X-ray rock scanners. Last thing the X-ray machine were used for detecting gold from drill holes.',
-      ['ul', [
+      vdomList([
         'Python/Flask/Django',
         'JavaScript/WebSocket/Mithril/React',
         'Oracle/APEX',
         'Data Workflow: Prefect',
         'Container: Buildah/Podman',
-      ]],
+      ]),
     ],
     reference: {
       name: 'Thomas Drage',
@@ -92,11 +96,11 @@ const references = [
     url: 'https://www.dinnertwist.com.au/',
     description: [
         'Built a semi-automatic food picking system consisting of about 20 tablets that direct workers to pack food items in a timely manner and eliminate human errors.',
-        ['ul', [
+        vdomList([
           'Erlang',
           'Reactive Programming with JavaScript, Mithril and Flyd',
           'WebSockets',
-        ]],
+        ]),
     ],
     reference: {
       name: 'Chris Tistrand',
@@ -111,11 +115,11 @@ const references = [
     url: 'https://www.internationalsalonsupplies.com.au/',
     description: [
       'Assemble a software team to do E-commerce integration for a salon supply company.',
-      ['ul', [
+      vdomList([
         'Python',
         'Wordpress/Woocommerce/PHP',
         'Erlang',
-      ]],
+      ]),
     ],
   },
   {
@@ -124,12 +128,12 @@ const references = [
     url: '', // null
     description: [
       'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers.',
-      ['ul', [
+      vdomList([
         'Python/Flask',
         'Reactive Programming with JavaScript, Mithril and Flyd',
         'PostgreSQL + PL/pgSQL',
         'Dart/Flutter (iOS & Android)',
-      ]],
+      ]),
     ],
   },
   {
@@ -138,10 +142,10 @@ const references = [
     url: 'https://www.woodside.com',
     description: [
       'Software consulting for Woodside through a recruiter.',
-      ['ul', [
+      vdomList([
         'Python',
         'Excel',
-      ]],
+      ]),
     ],
   },
   {
@@ -150,12 +154,12 @@ const references = [
     url: 'https://nform.com.au/',
     description: [
         'Software development agency.',
-        ['ul',[
+        vdomList([
           'Python',
           'JavaScript/Plotly',
           'HTML',
           'PostgreSQL',
-        ]]
+        ])
     ],
     reference: {
       name: 'Mike Hawryluk',
@@ -169,11 +173,11 @@ const references = [
     url: 'https://www.harlsan.com.au/',
     description: [
       'Software consulting about Python + Tableau integration and staff training on Git.',
-      ['ul', [
+      vdomList([
         'Python',
         'Git',
         'Tableau',
-      ]],
+      ]),
     ],
   },
   {
@@ -181,8 +185,8 @@ const references = [
     company: 'Rio Tinto',
     url: 'https://www.riotinto.com/',
     description: [
-      'Software development contract for Rio Tinto through a recruiter. Built Python/Flask web application for launching long-running background process.'
-      ['ul', [
+      'Software development contract for Rio Tinto through a recruiter. Built Python/Flask web application for launching long-running background process.',
+      vdomList([
         'Python/Flask/Django',
         'JavaScript/Plotly',
         'PostgreSQL/SQLite',
@@ -190,7 +194,7 @@ const references = [
         'Vagrant',
         'Jenkins',
         'Jira',
-      ].map(s => s)]
+      ])
     ],
     workType: FULL_TIME,
   },
@@ -210,7 +214,7 @@ const references = [
         'Python/Flask',
         'DICOM',
         'Docker',
-      ].map(s => s)]
+      ].map(s => ['li', s])]
     ],
   },
   {
@@ -232,7 +236,7 @@ const references = [
         'API Server (Erlang/Cowboy)',
         'SQL (No ORM)',
         'Integration with EFTPOS terminals (C#, .NET Core)'
-      ].map(s => s)],
+      ].map(s => ['li', s])],
     ],
     reference: {
       name: 'Tony Valent',
@@ -250,7 +254,7 @@ const references = [
         'Python/Django',
         'JavaScript/Mithril',
         'MSSQL',
-      ].map(s => s)]
+      ].map(s => ['li', s])]
     ],
     reference: {
       name: 'Alex Goulios',
@@ -269,7 +273,7 @@ const references = [
         'PHP/Laravel',
         'JavaScript/Vue',
         'PostgreSQL',
-      ].map(s => s)]
+      ].map(s => ['li', s])]
     ],
     reference: {
       name: 'Matt Harley',
@@ -288,7 +292,7 @@ const references = [
         'iOS: Swift',
         'Android: Kotlin',
         'Backend: Python'
-      ].map(s => s)],
+      ].map(s => ['li', s])],
     ],
   },
   {
@@ -302,7 +306,7 @@ const references = [
         'UI (Clojurescript/Reagent, Javascript/React)',
         'Custom CI server (Go)',
         'Amazon Web Services',
-      ].map(s => s)],
+      ].map(s => ['li', s])],
     ],
     reference: {
       name: 'Alfred Filser',
@@ -320,7 +324,7 @@ const references = [
         'API Server (Python/Django)',
         'UI (Javascript/jQuery/Canvas)',
         'Amazon Web Services',
-      ].map(s => s)],
+      ].map(s => ['li', s])],
     ],
     reference: {
       name: 'Daniel Lee',
