@@ -14,6 +14,8 @@
     </head>
     <body>
         <script src="./resume.js"></script>
-        <script src="./index.js"></script>
+        <script>
+            m.render(document.body, resume.map((element) => ConvertToHTML(element)));
+        </script>
     </body>
 </html>

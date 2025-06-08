@@ -64,7 +64,7 @@ const references = [
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
     description: [
-      'Automate data processing for data scientists and geologists. Build web UI for rock scanners.',
+      'Automate data processing (ETL) for data scientists and geologists. Build web UI for loading data into X-ray rock scanners. Last thing the X-ray machine were used for detecting gold from drill holes.',
       ['ul', [
         'Python/Flask/Django',
         'JavaScript/WebSocket/Mithril/React',
@@ -86,7 +86,7 @@ const references = [
     company: 'Dinner Twist',
     url: 'https://www.dinnertwist.com.au/',
     description: [
-        'Semi-automatic food picking system to direct workers pack in a timely manner and eliminate human errors.',
+        'Built a semi-automatic food picking system consisting of about 20 tablets that direct workers to pack food items in a timely manner and eliminate human errors.',
         ['ul', [
           'Erlang',
           'Reactive Programming with JavaScript, Mithril and Flyd',
@@ -105,7 +105,7 @@ const references = [
     company: 'International Salon Supplies',
     url: 'https://www.internationalsalonsupplies.com.au/',
     description: [
-      'Assemble a software team to do e-commerce integration for a salon supply company.',
+      'Assemble a software team to do E-commerce integration for a salon supply company.',
       ['ul', [
         'Python',
         'Wordpress/Woocommerce/PHP',
@@ -176,7 +176,7 @@ const references = [
     company: 'Rio Tinto',
     url: 'https://www.riotinto.com/',
     description: [
-      'Software development contract for Rio Tinto through a recruiter.'
+      'Software development contract for Rio Tinto through a recruiter. Built Python/Flask web application for launching long-running background process.'
       ['ul', [
         'Python/Flask/Django',
         'JavaScript/Plotly',
@@ -632,3 +632,56 @@ const resume = [
   ['div', `Position: ${position}`],
   ['div', ['Contact: ', labelContact(contact)]],
 ])));
+
+/**
+ * Takes in a list of elements and returns a list of virtual of DOM Elemnts
+ */
+function ConvertListToDOM(listOfElements) {
+    var ListOfDOM = [];
+
+    for(var i = 0; i < listOfElements.length; i++)
+    {
+        // Check if there is a nested/sub list by checking for an object instead of an array
+        if(typeof(listOfElements[i]) === 'object' && !Array.isArray(listOfElements[i])) {
+            if(Array.isArray(listOfElements[i].title)) {
+                listOfElements[i].title.push(['ul', listOfElements[i].list]);
+                ListOfDOM.push(ConvertToHTML(['li', listOfElements[i].title]));
+            } else {
+                ListOfDOM.push(ConvertToHTML(['li', [listOfElements[i].title, ['ul', listOfElements[i].list]]]));
+            }
+        // Checks if there is a Hyperlink as a item in the list
+        } else if(listOfElements[i][0] === 'a') {
+            ListOfDOM.push(ConvertToHTML(['li', ConvertToHTML(listOfElements[i])]));
+        } else {
+            ListOfDOM.push(ConvertToHTML(['li', listOfElements[i]]));
+        }
+    }
+
+    return m('ul', ListOfDOM);
+}
+
+function ConvertToHTML(element) {
+    var domElement = m('div', element);
+
+    if(Array.isArray(element)) {
+        if(element.length == 2) {
+            if(element[0] === 'ul') {
+                domElement = ConvertListToDOM(element[1]);
+            } else {
+                if(Array.isArray(element[1])) {
+                    domElement = m(element[0], element[1].map((element) => typeof(element) === 'object' ? ConvertToHTML(element) : element));
+                } else {
+                    domElement = m(element[0], element[1]);
+                }
+            }
+        } else {
+            if(Array.isArray(element[2])){
+                domElement = m(element[0], element[1], element[2].map((element) => typeof(element) === 'object' ? ConvertToHTML(element) : element));
+            } else {
+                domElement = m(element[0], element[1], element[2]);
+            }
+        }
+    }
+
+    return domElement;
+}
