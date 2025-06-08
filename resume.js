@@ -1,6 +1,11 @@
 // Add photo of home setup
 // Add hobbies
 
+function logk(k, v) {
+  console.log(k, v);
+  return v;
+}
+
 const ON_REQUEST = null;
 const CONTRACT = 'contract';
 const FULL_TIME = 'full-time';
@@ -408,36 +413,35 @@ const talks = [
             'Co-organiser of the monthly Python meetup (2016-2022) ',
             ['a',{href:'http://pythonwa.com'},'http://pythonwa.com']
         ],
-        list: [{
-            title: 'Talked about how not to use Django',
-            list: [
-                ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/'},'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/']
-            ]
-        }, {
-            title: [
+        list: [
+          ['ul',
+            ['li', 'Talked about how not to use Django'],
+            ['li',
+                ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/'},'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/']]
+          ],
+          ['ul',
+            ['li',
                 'Introduce Single Page Applications using ',
                 ['a',{href:'https://mithril.js.org'},'Mithril'],
-                ' instead of React.'
-            ],
-            list: [
-                ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/'},'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/'],
-                ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/'},'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/']
-            ]
-        }]
+                ' instead of React.'],
+            ['ul',
+                ['li', ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/'},'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/']],
+                ['li', ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/'},'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/']]],
+        ]]
     },
     {
         title: [
             'As guest programming workshop presenter for Perth Machine Learning Group ',
             ['a',{href:'https://www.pmlg.org/'},'pmlg.org']
         ],
-        list: [{
-            title: 'Kick out Meetup spam bots automatically with Python',
-            list: [
+        list: ['ul',
+            ['li', 'Kick out Meetup spam bots automatically with Python'],
+            ['li',
                 ['a',{href:'https://www.meetup.com/Perth-Machine-Learning-Group/events/kppfhryzpbsb/'},'https://www.meetup.com/Perth-Machine-Learning-Group/events/kppfhryzpbsb/']
             ]
-        }]
+        ]
     }
-];
+].map(({ title, list }) => ['ul', ['li', title, list]]);
 
 const contract2023 = [
     'Continued work for Dinner Twist to analyse packing data.',
@@ -593,7 +597,7 @@ const resume = [
     ],
     ['h1', 'Why do I want this job?'],
     ['p', "I'm normally a software developer working on my startup. I'm happy to do other jobs (even with much lesser pay) on the side to cover my poor startup lifestyle. Although my past experience may not be directly relevant for this job, I hope its content would inform my suitability anyway."],
-    ['p', 'In summary, my experience as a software developer allows me the ability to learn new things fast to solve technical and complex problems, with or without compromise. My experience as a business analyst allows me the ability to understand customer requirements, and to develop customer confidence and satisfaction.'],
+    ['p', 'In summary, my experience as a software developer allows me the ability to learn new things fast to solve ', ['b', 'technical'], ' and ', ['b', 'complex problems'], ' with little compromise. My experience as a business analyst allows me the ability to understand customer requirements, and to develop ', ['b', 'customer confidence'], ' and ', ['b', 'satisfaction.']],
     ['img', { src: 'IMG_20240926_152433.jpg', style: 'width: 100%' }],
     ['div',
       { class: 'img-desc', style: 'text-align:center' },
@@ -616,7 +620,7 @@ const resume = [
     ['h2', 'General Skills'],
     ['ul', skills],
     ['h2', 'Talks/Workshops'],
-    ['ul', talks],
+    talks,
     ['h2', 'Past Work'],
 ].concat(unnest(references.map(({ date, company, url, description, workType }) => [
   ['h3', { style: { 'margin-bottom': 0 } }, [company, ['span', { style: { 'margin-left': '4px', 'font-size': '0.8em' } }, `(${labelWorkType(workType)})`]]],
@@ -685,4 +689,145 @@ function ConvertToHTML(element) {
     }
 
     return domElement;
+}
+
+const TAGS = [
+  "a",
+  "abbr",
+  "address",
+  "article",
+  "aside",
+  "audio",
+  "b",
+  "base",
+  "blockquote",
+  "body",
+  "br",
+  "button",
+  "canvas",
+  "caption",
+  "cite",
+  "code",
+  "col",
+  "colgroup",
+  "data",
+  "datalist",
+  "dd",
+  "del",
+  "details",
+  "dfn",
+  "dialog",
+  "div",
+  "dl",
+  "dt",
+  "em",
+  "embed",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "footer",
+  "form",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "head",
+  "header",
+  "hr",
+  "html",
+  "i",
+  "iframe",
+  "img",
+  "input",
+  "ins",
+  "kbd",
+  "label",
+  "legend",
+  "li",
+  "link",
+  "main",
+  "map",
+  "mark",
+  "menu",
+  "meta",
+  "meter",
+  "nav",
+  "noscript",
+  "object",
+  "ol",
+  "optgroup",
+  "option",
+  "output",
+  "p",
+  "param",
+  "picture",
+  "pre",
+  "progress",
+  "q",
+  "rp",
+  "rt",
+  "ruby",
+  "s",
+  "samp",
+  "script",
+  "section",
+  "select",
+  "small",
+  "source",
+  "span",
+  "strike",
+  "strong",
+  "style",
+  "sub",
+  "summary",
+  "sup",
+  "svg",
+  "table",
+  "tbody",
+  "td",
+  "template",
+  "textarea",
+  "tfoot",
+  "th",
+  "thead",
+  "time",
+  "title",
+  "tr",
+  "track",
+  "tt",
+  "u",
+  "ul",
+  "var",
+  "video",
+  "wbr"
+];
+function isObject(val) {
+  return !!val && typeof val === "object" && val.constructor === Object;
+}
+function isTag(val) {
+  return Array.isArray(val) && TAGS.includes(val[0]);
+}
+function processContent(content) {
+  if (content === null || content === undefined) {
+    return null;
+  }
+  if (isTag(content)) {
+    return toVdom(content);
+  }
+  if (typeof content === 'string') {
+    return content;
+  }
+  if (Array.isArray(content)) {
+    return content.map(processContent);
+  }
+  console.error(content);
+  throw Error(`${content} is not processed`);
+}
+function toVdom(v) {
+  const v2 = isTag(v) ? v : ['div', ...v];
+  const expanded = isObject(v2[1]) ? v2 : [v2[0], {}, ...v2.slice(1)];
+  const contentList = expanded.slice(2);
+  return m(expanded[0], expanded[1], contentList.map(processContent));
 }

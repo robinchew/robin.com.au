@@ -15,7 +15,7 @@
     <body>
         <script src="./resume.js"></script>
         <script>
-            m.render(document.body, resume.map((element) => ConvertToHTML(element)));
+            m.render(document.body, m('div', resume.map((element) => toVdom(element))));
         </script>
     </body>
 </html>
