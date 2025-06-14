@@ -344,7 +344,15 @@ const references = [
     company: 'SignIQ (now called Last Yard)',
     url: 'https://www.signiq.com',
     position: 'Senior Software Developer',
-    description: "SignIQ is a leading Retail Ticketing company with customers across Australia and New Zealand. Senior Software Developer responsible for developing web applications in Python, Django, JavaScript and React.",
+    description: [
+      "SignIQ is a leading Retail Ticketing company with customers across Australia and New Zealand. I was part of the team to build from scratch a new web version of their desktop ticketing application.",
+      ['ul', [
+        'Python/Django',
+        'Javascript/jQuery/React',
+        'Amazon Web Services',
+        'Ansible',
+      ].map(s => ['li', s])],
+    ],
     reference: {
       name: 'Chris Stoyles',
       position: 'CTO',
