@@ -202,7 +202,14 @@ const references = [
     date: '2019',
     company: 'All Rentals',
     url: 'https://allrentals.com.au/',
-    description: 'Django application that lists properties for sale/rental.',
+    description: [
+      'Django application that lists properties for sale/rental.',
+      ['ul', [
+        'Python/Django',
+        'Stripe',
+        'Rex Real Estate API integration',
+      ].map(s => ['li', s])]
+    ],
   },
   {
     date: '2019',
@@ -599,14 +606,16 @@ const resume = [
     ['p',
       ['And my public code at ', ['a', { href: 'https://github.com/robinchew' }, 'https://github.com/robinchew'], '.'],
     ],
-    ['h1', 'Why do I want this job?'],
-    ['p', "I'm normally a software developer working on my startup. I'm happy to do other jobs (even with much lesser pay) on the side to cover my poor startup lifestyle. Although my past experience may not be directly relevant for this job, I hope its content would inform my suitability anyway."],
-    ['p', 'In summary, my experience as a software developer allows me the ability to learn new things fast to solve ', ['b', 'technical'], ' and ', ['b', 'complex problems'], ' with little compromise. My experience as a business analyst allows me the ability to understand customer requirements, and to develop ', ['b', 'customer confidence'], ' and ', ['b', 'satisfaction.']],
-    ['img', { src: 'IMG_20240926_152433.jpg', style: 'width: 100%' }],
+    ...(false ? [
+      ['h1', 'Why do I want this job?'],
+      ['p', "I'm normally a software developer working on my startup. I'm happy to do other jobs (even with much lesser pay) on the side to cover my poor startup lifestyle. Although my past experience may not be directly relevant for this job, I hope its content would inform my suitability anyway."]
+      ['p', 'In summary, my experience as a software developer allows me the ability to learn new things fast to solve ', ['b', 'technical'], ' and ', ['b', 'complex problems'], ' with little compromise. My experience as a business analyst allows me the ability to understand customer requirements, and to develop ', ['b', 'customer confidence'], ' and ', ['b', 'satisfaction.']],
+    ] : []),
+    ['img', { src: 'IMG_20240926_152433_quarter.jpg', style: 'width: 100%' }],
     ['div',
       { class: 'img-desc', style: 'text-align:center' },
       'Gate and garage remotes controlled by Raspberry Pi Zero'],
-    ['img', { src: 'computer-setup-2025.jpg', style: 'width: 100%' }],
+    ['img', { src: 'computer-setup-2025_quarter.jpg', style: 'width: 100%' }],
     ['div',
       { class: 'img-desc', style: 'text-align:center' },
       'Home Office'],
