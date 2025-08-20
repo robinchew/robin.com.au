@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="mithril.js"></script>
+        <style>
+            .img-desc {
+                font-size: 1.3em;
+            }
+            .img-desc:before {
+                content: '\23F6';
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="./resume-support-worker.js"></script>
+        <script>
+            m.render(document.body, m('div', resume.map((element) => toVdom(element))));
+        </script>
+    </body>
+</html>
