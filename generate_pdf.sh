@@ -25,6 +25,7 @@ $input;
 # Check if PDF generation was successful
 if [ -f "$pdf_output" ]; then
     echo "PDF has been generated."
+    echo $pdf_output
 else
     echo "PDF generation failed."
 fi

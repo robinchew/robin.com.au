@@ -36,6 +36,24 @@ function link(url) {
 function vdomList(arr) {
   return ['ul', arr.map(i => ['li', i])];
 }
+function vdomTable(arr, opts = {}) {
+  return ['table',
+    {
+      style: {
+        'border-collapse': 'collapse',
+      },
+    },
+    arr.map(row => ['tr', row.map((cell, i) =>
+      ['td',
+        {
+          style: {
+            'border': '1px solid grey',
+            padding: '5px',
+            ...(((opts.cols || [])[i] || {}).style || {})
+          }, 
+        }, 
+        cell])])];
+}
 
 function unnest(list){
   // https://github.com/selfrefactor/rambda/blob/master/src/unnest.js
@@ -48,39 +66,56 @@ function unnest(list){
   }, [])
 }
 
-const references = [
+const supportReferences = [
   {
-    date: 'October 2024',
-    company: 'CADLINK',
+    date: '22 September 2025 - 10 October 2025',
+    company: 'Regis Como (Placement)',
     description: [
-      'Program ESP32 to periodically send data from sensors to Azure.',
-      vdomList([
-        'Micropython',
-        'Erlang/AtomVM',
-        'JavaScript',
-        'Azure Blobs',
-      ]),
+      'Did 3 weeks placement providing aged care and other variety of support, including lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. There are challenges, and I am hopeful of finding solutions to provide the best care possible.',
     ],
-    reference: {
-      name: 'Mark Kaye',
-      position: 'Director',
-      email: email('marc@cadlink.com.au'),
-      phone: '0419 921 543',
-    },
+    references: [
+      {
+        name: 'G\'Nay Panpone',
+        position: 'Registered Nurse',
+        contact: [email('gpanpone@yahoo.com'), '040 247 6155'],
+        // phone: '0402476155',
+        // contact: link('https://www.linkedin.com/in/thomas-drage/'),
+      },
+      {
+        name: 'Rael Kemei',
+        position: 'Registered Nurse',
+        contact: '042 224 9344',
+      },
+    ],
   },
+];
+
+function formatDescription({ date, company, url, description }) {
+  return [
+    ['h3', { style: { 'margin-bottom': 0 } }, [company, ['span', { style: { 'margin-left': '4px', 'font-size': '0.8em' } }]]],
+    ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
+    ['div', { style: { 'font-weight': 'bold', 'padding': '10px' } }, date],
+    ['div', { style: { 'margin-left': '10px' } }, description],
+  ];
+}
+
+function formatReferences({ references }) {
+  return references.reduce((acc, { company, name, position, contact }) => [
+    ...acc,
+    ['h3', { style: { 'margin-bottom': '5px' } }, company],
+    ['b', `Reference: ${name}`],
+    ['div', `Position: ${position}`],
+    ['div', ['Contact: ', labelContact(contact)]],
+  ], []);
+}
+
+const references = [
   {
     date: 'July 2023 - June 2024',
     company: 'Orexplore Technologies',
     url: 'https://www.orexplore.com',
     description: [
       'Automate data processing (ETL) for data scientists and geologists. Build web UI for loading data into X-ray rock scanners. Last thing the X-ray machine were used for detecting gold from drill holes.',
-      vdomList([
-        'Python/Flask/Django',
-        'JavaScript/WebSocket/Mithril/React',
-        'Oracle/APEX',
-        'Data Workflow: Prefect',
-        'Container: Buildah/Podman',
-      ]),
     ],
     reference: {
       name: 'Thomas Drage',
@@ -96,11 +131,6 @@ const references = [
     url: 'https://www.dinnertwist.com.au/',
     description: [
         'Built a semi-automatic food picking system consisting of about 20 tablets that direct workers to pack food items in a timely manner and eliminate human errors.',
-        vdomList([
-          'Erlang',
-          'Reactive Programming with JavaScript, Mithril and Flyd',
-          'WebSockets',
-        ]),
     ],
     reference: {
       name: 'Chris Tistrand',
@@ -108,18 +138,12 @@ const references = [
       contact: '+61 8 6102 2727',
     },
   },
-  // coffee
   {
-    date: 'June 2022 - October 2022',
-    company: 'International Salon Supplies',
-    url: 'https://www.internationalsalonsupplies.com.au/',
+    date: 'March 2022',
+    company: 'Coffee Bar',
+    // url: 'https://www.internationalsalonsupplies.com.au/',
     description: [
-      'Assemble a software team to do E-commerce integration for a salon supply company.',
-      vdomList([
-        'Python',
-        'Wordpress/Woocommerce/PHP',
-        'Erlang',
-      ]),
+      'Worked as a barista, grinding coffee beans and steaming milk to serve quality coffee in a Burswood warehouse.',
     ],
   },
   {
@@ -127,252 +151,9 @@ const references = [
     company: 'Private Client',
     url: '', // null
     description: [
-      'Assemble a software team to develop a platform for a startup that connects NDIS service providers and support workers.',
-      vdomList([
-        'Python/Flask',
-        'Reactive Programming with JavaScript, Mithril and Flyd',
-        'PostgreSQL + PL/pgSQL',
-        'Dart/Flutter (iOS & Android)',
-      ]),
+      'Assembled a software team to develop a platform for a startup that connects NDIS service providers and support workers.',
     ],
   },
-  {
-    date: 'June 2021 - July 2021',
-    company: 'Woodside',
-    url: 'https://www.woodside.com',
-    description: [
-      'Software consulting for Woodside through a recruiter.',
-      vdomList([
-        'Python',
-        'Excel',
-      ]),
-    ],
-  },
-  {
-    date: 'March 2021 - June 2021',
-    company: 'nForm',
-    url: 'https://nform.com.au/',
-    description: [
-        'Software development agency.',
-        vdomList([
-          'Python',
-          'JavaScript/Plotly',
-          'HTML',
-          'PostgreSQL',
-        ])
-    ],
-    reference: {
-      name: 'Mike Hawryluk',
-      position: 'Director',
-      contact: link('https://nform.com.au/contact/'),
-    },
-  },
-  {
-    date: 'April 2021',
-    company: 'Harlsan',
-    url: 'https://www.harlsan.com.au/',
-    description: [
-      'Software consulting about Python + Tableau integration and staff training on Git.',
-      vdomList([
-        'Python',
-        'Git',
-        'Tableau',
-      ]),
-    ],
-  },
-  {
-    date: 'February 2020 - December 2020',
-    company: 'Rio Tinto',
-    url: 'https://www.riotinto.com/',
-    description: [
-      'Software development contract for Rio Tinto through a recruiter. Built Python/Flask web application for launching long-running background process.',
-      vdomList([
-        'Python/Flask/Django',
-        'JavaScript/Plotly',
-        'PostgreSQL/SQLite',
-        'Git',
-        'Vagrant',
-        'Jenkins',
-        'Jira',
-      ])
-    ],
-    workType: FULL_TIME,
-  },
-  {
-    date: '2019',
-    company: 'All Rentals',
-    url: 'https://allrentals.com.au/',
-    description: [
-      'Django application that lists properties for sale/rental.',
-      ['ul', [
-        'Python/Django',
-        'Stripe',
-        'Rex Real Estate API integration',
-      ].map(s => ['li', s])]
-    ],
-  },
-  {
-    date: '2019',
-    company: 'Three Springs Technology',
-    url: 'https://threespringstechnology.com/',
-    description: [
-      'Develop devops infrastructure for AI product for medical imaging.',
-      ['ul', [
-        'Python/Flask',
-        'DICOM',
-        'Docker',
-      ].map(s => ['li', s])]
-    ],
-  },
-  {
-    date: '2019',
-    company: 'TyreConnect',
-    url: 'https://tyreconnect.com.au/',
-    description: 'Elixir Development',
-  },
-  // nemo
-  // scratch at montessory
-  {
-    date: '2019',
-    company: 'UFO Star Station',
-    url: 'https://maps.app.goo.gl/PeQjvwFxsC63wf1L9',
-    description: [
-      'Develop an offline KDS (Kitchen Display System) web application for displaying orders for restaurant kitchens pushed from Square POS.',
-      ['ul', [
-        'UI (Javascript/Mithril)',
-        'API Server (Erlang/Cowboy)',
-        'SQL (No ORM)',
-        'Integration with EFTPOS terminals (C#, .NET Core)'
-      ].map(s => ['li', s])],
-    ],
-    reference: {
-      name: 'Tony Valent',
-      position: 'Owner',
-      contact: ON_REQUEST,
-    },
-  },
-  {
-    date: '2018',
-    company: 'Spring Tech (now called CorePlan)',
-    url: 'https://www.coreplan.io/',
-    description: [
-      'Design and build web applications to analyse and visualise data of mining operations.',
-      ['ul', [
-        'Python/Django',
-        'JavaScript/Mithril',
-        'MSSQL',
-      ].map(s => ['li', s])]
-    ],
-    reference: {
-      name: 'Alex Goulios',
-      position: 'Director',
-      contact: '+61 8 6365 4488',
-    },
-    workType: PART_TIME,
-  },
-  {
-    date: '2018',
-    company: 'Megatix',
-    url: 'https://megatix.com.au/',
-    description: [
-      'Develop on the event ticketing site under the team lead.',
-      ['ul', [
-        'PHP/Laravel',
-        'JavaScript/Vue',
-        'PostgreSQL',
-      ].map(s => ['li', s])]
-    ],
-    reference: {
-      name: 'Matt Harley',
-      position: 'Lead Web Developer',
-      contact: link('https://www.linkedin.com/in/mattharley/'),
-    },
-  },
-  {
-    date: '2017',
-    company: 'Teacher Search',
-    url: '', // null
-    description: [
-      'A short-lived startup that connects schools and relief teachers.',
-      ['ul', [
-        'Web Frontend: JavaScript',
-        'iOS: Swift',
-        'Android: Kotlin',
-        'Backend: Python'
-      ].map(s => ['li', s])],
-    ],
-  },
-  {
-    date: '2016',
-    company: 'Ciao Bella Nail Salon',
-    url: 'https://www.facebook.com/SNSnailsCanningVale/', // null
-    description: [
-      `This beauty salon has 2 branches and staff are expected to move between those branches with clients who are willing to move between branches to access the service in high demand. The business owner uses OBSI's web application with a timetable interface in order to create and occasionally move client/staff bookings between branches in order to satisfy demand.`,
-      ['ul', [
-        'API Server (Python/Django)',
-        'UI (Clojurescript/Reagent, Javascript/React)',
-        'Custom CI server (Go)',
-        'Amazon Web Services',
-      ].map(s => ['li', s])],
-    ],
-    reference: {
-      name: 'Alfred Filser',
-      position: 'Owner',
-      contact: '+61 4 01662042',
-    },
-  },
-  {
-    date: '2015',
-    company: 'Lightcube Designs',
-    url: 'https://bia.lighting/', // null
-    description: [
-      'A custom quoting system with floor plan drawing integration saves the business owner time to create both quotes and floor plans simultaneously on the same web application with guaranteed synchronised quote data that matches the drawings. This saves the headache of using 2 separate applications for quoting and floor plan design, and manually keeping them in sync for every client with ever-changing requirements.',
-      ['ul', [
-        'API Server (Python/Django)',
-        'UI (Javascript/jQuery/Canvas)',
-        'Amazon Web Services',
-      ].map(s => ['li', s])],
-    ],
-    reference: {
-      name: 'Daniel Lee',
-      position: 'Design Manager',
-      contact: '+61 8 64545899',
-    },
-  },
-  {
-    date: '2014 - 2016',
-    company: 'SignIQ (now called Last Yard)',
-    url: 'https://www.signiq.com',
-    position: 'Senior Software Developer',
-    description: [
-      "SignIQ is a leading Retail Ticketing company with customers across Australia and New Zealand. I was part of the team to build from scratch a new web version of their desktop ticketing application.",
-      ['ul', [
-        'Python/Django',
-        'Javascript/jQuery/React',
-        'Amazon Web Services',
-        'Ansible',
-      ].map(s => ['li', s])],
-    ],
-    reference: {
-      name: 'Chris Stoyles',
-      position: 'CTO',
-      contact: '+61 8 6230 2475',
-    },
-    workType: FULL_TIME,
-  },
-  {
-    date: '2012 - 2013',
-    company: 'Harmonic New Media',
-    url: 'http://harmonic.com.au/',
-    position: 'Senior Software Developer',
-    description: "A Perth based New Media company, responsible for building sports-tipping and e-commerce web applications used in large scale by large clients.",
-    reference: {
-      name: 'Craig Harman',
-      position: 'Director',
-      contact: '9227 0003',
-    },
-    workType: FULL_TIME,
-  }
 ];
 
 const expDesciption = [
@@ -404,63 +185,14 @@ const lessFamiliar = [
     'Go'
 ].map(s => ['li', s]);
 
-const skills = [
-    'Arch Linux, Ubuntu, Debian, Red Hat, Slackware',
-    'Vim, Android Studio, Xcode',
-    'PostgreSQL, MySQL, MSSQL, SQLite',
-    'Git, Github, Gitlab, Bitbucket',
-    'Bash Scripting',
-    'HTML/CSS',
-    'Photoshop',
-    'Docker, LXC, Buildah/Podman, VirtualBox/Vagrant, VMWare',
-    'AWS services: EC2, S3, Lambda, DynamoDB, Elastic Beanstalk, etc.',
-].map(s => ['li', s]);
-
 const talks = [
     {
-        title: 'Teaching Python and Javascript to aspiring developers',
-        list: [
-            [
-              ['a',{href:'https://www.canning.wa.gov.au/events/social-coding/'}, 'Social Coding'],
-              ' every week at Hillview Intercultural Community Centre',
-            ],
-            ['a',{href:'https://www.meetup.com/pythonwa/events/290315903/'},'https://www.meetup.com/pythonwa/events/290315903/']
-        ]
+        list: vdomList([
+          [['a',{href:'https://www.canning.wa.gov.au/events/social-coding/'}, 'Social Coding'], ' every week at Hillview Intercultural Community Centre'],
+          [['a',{href:'https://www.meetup.com/pythonwa/events/290315903/'},'https://www.meetup.com/pythonwa/events/290315903/'], ' Python Programming'],
+        ])
     },
-    {
-        title: [
-            'Co-organiser of the monthly Python meetup (2016-2022) ',
-            ['a',{href:'http://pythonwa.com'},'http://pythonwa.com']
-        ],
-        list: [
-          ['ul',
-            ['li', 'Talked about how not to use Django'],
-            ['li',
-                ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/'},'https://www.meetup.com/Perth-Django-Users-Group/events/237759934/']]
-          ],
-          ['ul',
-            ['li',
-                'Introduce Single Page Applications using ',
-                ['a',{href:'https://mithril.js.org'},'Mithril'],
-                ' instead of React.'],
-            ['ul',
-                ['li', ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/'},'https://www.meetup.com/Perth-Django-Users-Group/events/241878300/']],
-                ['li', ['a',{href:'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/'},'https://www.meetup.com/Perth-Django-Users-Group/events/240861484/']]],
-        ]]
-    },
-    {
-        title: [
-            'As guest programming workshop presenter for Perth Machine Learning Group ',
-            ['a',{href:'https://www.pmlg.org/'},'pmlg.org']
-        ],
-        list: ['ul',
-            ['li', 'Kick out Meetup spam bots automatically with Python'],
-            ['li',
-                ['a',{href:'https://www.meetup.com/Perth-Machine-Learning-Group/events/kppfhryzpbsb/'},'https://www.meetup.com/Perth-Machine-Learning-Group/events/kppfhryzpbsb/']
-            ]
-        ]
-    }
-].map(({ title, list }) => ['ul', ['li', title, list]]);
+].map(({ title, list }) => list);
 
 const contract2023 = [
     'Continued work for Dinner Twist to analyse packing data.',
@@ -604,71 +336,51 @@ const resume = [
       }
     `],
     ['h1', { style: { 'font-size': '2em' } }, 'Ruoh Pin (Robin) Chew'],
-    ['div', 'Perth'],
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
-    ['h1', 'Support Worker'],
+    ['h1', 'Support Worker/Carer'],
+    ['h2', 'Certifications'],
+    vdomTable([
+      ['USI', '7U6W2KEQML'],
+      ['Certificate III in Individual Support CHC33021', 'Completed on 10 October 2025'],
+      ['HLTAID011 Provide First Aid', 'Completed on 24 April 2025'],
+      ['NDIS Worker Screening Check ', [['b', { style: 'color:red' }, 'Expires'], ' on 29 June 2030']],
+      ['Police Clearance ', ['Valid from 23 April 2025']],
+      ['Working With Children Check',  [['b', { style: 'color:red' }, 'Expires'], ' on 17 June 2028']],
+      ['Last COVID immunisation', '02 January 2022'],
+      ['Last Influenza immunisation', '01 September 2025'],
+      ['Car ownership/licence', 'Yes'],
+      // ['Medcomp', ''],
+      // ['Food', ''],
+    ], { cols: [null, {style: { 'text-align': 'right' }}] }),
+    ['h2', 'Skills'],
+    vdomTable([
+      ['Mobility equipment', 'Hoist, Sara Stedy/Flex, wheelchair, walker.'],
+      ['ADL', 'Bed wash, shower, trolley shower, toiletry, bed-making, shaving.'],
+      ['Hygiene', 'Habitual hand washing, glove changing, urinal sterilisation.'],
+      ['Feeding', 'Fed several residents with non-modified food.'],
+      ['IT support', 'I am also a software engineer.'],
+      ['Teaching', ['I occasionally teach programming to a client living at a SIL']],
+    ]),
     ['h2', 'Experience'],
-    ['ul',
-      ['li', 'No support worker experience until placement is complete.'],
-      ['li', 'Every week I ', ['b', 'teaching programming'], ' to a client living at a ', ['b', 'supported accommodation.']]],
+    supportReferences.map(formatDescription),
+    ['p', ''],
     ['h2', 'Studies'],
-    ['h3', 'Sero Institute'],
-    ['p', 'June 2025 - October 2025'],
-    ['p', 'Certificate III in Individual Support CHC33021'],
-    ['p', 'Although this course is almost impossible to fail, I do the written assessments seriously, honestly and with integrity, despite the temptation of using AI. I went ', ['b', 'above and beyond'], ' with my studies, and I plan to maintain the same level of standard for my professional working life.'],
-    ['div', { style: { 'break-after': 'page' } }],
-    ['h1', 'Software Engineer'],
-    ['p',
-      ['Find my most up-to-date resume at ', ['a', { href: 'http://robin.com.au' }, 'robin.com.au'], '.'],
-    ],
-    ['p',
-      ['And my public code at ', ['a', { href: 'https://github.com/robinchew' }, 'https://github.com/robinchew'], '.'],
-    ],
-    ...(false ? [
-      ['h1', 'Why do I want this job?'],
-      ['p', "I'm normally a software developer working on my startup. I'm happy to do other jobs (even with much lesser pay) on the side to cover my poor startup lifestyle. Although my past experience may not be directly relevant for this job, I hope its content would inform my suitability anyway."]
-      ['p', 'In summary, my experience as a software developer allows me the ability to learn new things fast to solve ', ['b', 'technical'], ' and ', ['b', 'complex problems'], ' with little compromise. My experience as a business analyst allows me the ability to understand customer requirements, and to develop ', ['b', 'customer confidence'], ' and ', ['b', 'satisfaction.']],
-    ] : []),
-    ['img', { src: 'IMG_20240926_152433_quarter.jpg', style: 'width: 100%' }],
-    ['div',
-      { class: 'img-desc', style: 'text-align:center' },
-      'Gate and garage remotes controlled by Raspberry Pi Zero'],
-    ['img', { src: 'computer-setup-2025_quarter.jpg', style: 'width: 100%' }],
-    ['div',
-      { class: 'img-desc', style: 'text-align:center' },
-      'Home Office'],
-    ['h2', 'Experience as a Software Engineer'],
-    ['div', expDesciption],
-    ['h2', 'Technology Stack'],
-    ['h3', 'Frontend'],
-    ['ul', frontendStacks],
-    ['h3', 'Backend'],
-    ['ul', backendStacks],
-    ['h3', 'Familiar Languages'],
-    ['ul', familiarStacks],
-    ['h3', 'Less familiar but can get work done'],
-    ['ul', lessFamiliar],
-    ['h2', 'General Skills'],
-    ['ul', skills],
-    ['h2', 'Talks/Workshops'],
+    formatDescription({
+      date: 'June 2025 - October 2025',
+      company: 'Certificate III in Individual Support CHC33021 (Sero Institute)',
+      description: ['Although this course is almost impossible to fail, I do the written assessments seriously, honestly and with integrity, despite the temptation of using AI. I went ', ['b', 'above and beyond'], ' with my studies, and I plan to maintain the same level of standard for my professional working life.']
+    }),
+    ['h2', 'Volunteer Teaching'],
+    ['p', 'Teach coding to aspiring developers/programmers.'],
     talks,
-    ['h2', 'Past Work'],
-].concat(unnest(references.map(({ date, company, url, description, workType }) => [
-  ['h3', { style: { 'margin-bottom': 0 } }, [company, ['span', { style: { 'margin-left': '4px', 'font-size': '0.8em' } }, `(${labelWorkType(workType)})`]]],
-  ['div', { style: { 'margin-left': '10px' } }, [['a', { href: url }, url]]],
-  ['b', { style: { 'margin-left': '10px' } }, date],
-  ['div', { style: { 'margin-left': '10px' } }, description],
-])))
-.concat([
-  ['h2', 'References'],
-])
-.concat(unnest(references.filter(({ reference }) => reference).map(({ company, reference: { name, position, contact } }) => [
-  ['h3', { style: { 'margin-bottom': '5px' } }, company],
-  ['b', `Reference: ${name}`],
-  ['div', `Position: ${position}`],
-  ['div', ['Contact: ', labelContact(contact)]],
-])));
+    ['h2', 'References'],
+    supportReferences.map(formatReferences),
+    // ['div', { style: { 'break-after': 'page' } }],
+    ['p',
+      ['Find my software engineering resume at ', ['a', { href: 'http://robin.com.au' }, 'robin.com.au'], ' for your curiosity.'],
+    ],
+];
 
 /**
  * Takes in a list of elements and returns a list of virtual of DOM Elemnts
