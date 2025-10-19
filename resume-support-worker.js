@@ -68,6 +68,20 @@ function unnest(list){
 
 const supportReferences = [
   {
+    date: '15, 17 October 2025',
+    company: 'Ark Home Care (Buddy Shift)',
+    description: [
+      'Did 2 days of buddy shift, assisting with the care of a client with autism and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, etc.)',
+    ],
+    references: [
+      {
+        name: 'Joan Le Roux',
+        position: 'Director',
+        contact: ['08 63882842'],
+      },
+    ],
+  },
+  {
     date: '22 September 2025 - 10 October 2025',
     company: 'Regis Como (Placement)',
     description: [
@@ -77,7 +91,7 @@ const supportReferences = [
       {
         name: 'G\'Nay Panpone',
         position: 'Registered Nurse',
-        contact: [email('gpanpone@yahoo.com'), '040 247 6155'],
+        contact: [email('gpanpone@yahoo.com'), ' 040 247 6155'],
         // phone: '0402476155',
         // contact: link('https://www.linkedin.com/in/thomas-drage/'),
       },
@@ -339,6 +353,7 @@ const resume = [
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
     ['h1', 'Support Worker/Carer'],
+    ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve in order to provide the best care for the clients as well doing the job safely. Whatever challenge that you would like to propose to me, I am willing to listen.'],
     ['h2', 'Certifications'],
     vdomTable([
       ['USI', '7U6W2KEQML'],

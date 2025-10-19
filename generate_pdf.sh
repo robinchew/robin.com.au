@@ -9,7 +9,7 @@ fi;
 # Define the HTML input file path
 html_file=$1
 
-chrome_bin=${CHROME_BIN:-"chromium"}
+chrome_bin=${CHROME_BIN:-"brave"}
 
 # Run Chrome Headless in headless mode to generate the PDF
 pdf_output="robin-chew-${html_file%.*}-"`date +%Y-%m-%d`".pdf";
