@@ -71,7 +71,7 @@ const supportReferences = [
     date: '15, 17 October 2025',
     company: 'Ark Home Care (Buddy Shift)',
     description: [
-      'Did 2 days of buddy shift, assisting with the care of a client with autism and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, etc.)',
+      'Did 2 days of buddy shift, assisting with the care of a client with autism and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, portable urinal, etc.)',
     ],
     references: [
       {
@@ -354,6 +354,7 @@ const resume = [
     ['div', 'Australian Citizen'],
     ['h1', 'Support Worker/Carer'],
     ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve in order to provide the best care for the clients as well doing the job safely. Whatever challenge that you would like to propose to me, I am willing to listen.'],
+    ['p', 'I am currently in ', ['b', 'South Perth'], ' but able to drive.'],
     ['h2', 'Certifications'],
     vdomTable([
       ['USI', '7U6W2KEQML'],
@@ -365,12 +366,13 @@ const resume = [
       ['Last COVID Immunisation', '02 January 2022'],
       ['Last Influenza Immunisation', '01 September 2025'],
       ['Car Ownership/Licence', 'Yes'],
-      ['English Level', 'Proficient'],
       // ['Medcomp', ''],
       // ['Food', ''],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h2', 'Skills'],
     vdomTable([
+      ['English Competency', 'Proficient'],
+      ['Mandarin Competency', 'Basic'],
       ['Mobility equipment', 'Hoist, Sara Stedy/Flex, wheelchair, walker.'],
       ['ADL', 'Bed wash, shower, trolley shower, toiletry, bed-making, shaving.'],
       ['Hygiene', 'Habitual hand washing, glove changing, urinal sterilisation.'],
