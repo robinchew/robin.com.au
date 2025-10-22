@@ -85,7 +85,7 @@ const supportReferences = [
     date: '22 September 2025 - 10 October 2025',
     company: 'Regis Como',
     description: [
-      'Did 3 weeks placement at an aged care facility providing variety of support to predominantly residents with ', ['b', 'dementia'], ', including ADL, lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. There are challenges, and I am hopeful of finding solutions to provide the best care possible.',
+      'Did 3 weeks placement at an aged care facility providing variety of support to predominantly residents with ', ['b', 'dementia'], ', including ADL, lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. I also had the pleasure to work with supervising nurses who are happy to ', ['b', 'endorse'], ' me for my time there, please see references below.',
     ],
     references: [
       {
