@@ -69,7 +69,7 @@ function unnest(list){
 const supportReferences = [
   {
     date: '15, 17 October 2025',
-    company: 'Ark Home Care (Buddy Shift)',
+    company: 'Ark Home Care',
     description: [
       'Did 2 days of buddy shift, assisting with the care of a client with ', ['b', 'autism'], ' and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, portable urinal, etc.)',
     ],
@@ -83,7 +83,7 @@ const supportReferences = [
   },
   {
     date: '22 September 2025 - 10 October 2025',
-    company: 'Regis Como (Placement)',
+    company: 'Regis Como',
     description: [
       'Did 3 weeks placement at an aged care facility providing variety of support to predominantly residents with ', ['b', 'dementia'], ', including ADL, lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. There are challenges, and I am hopeful of finding solutions to provide the best care possible.',
     ],
@@ -113,13 +113,19 @@ function formatDescription({ date, company, url, description }) {
   ];
 }
 
-function formatReferences({ references }) {
-  return references.reduce((acc, { company, name, position, contact }) => [
+function formatReferences({ company, references }) {
+  return references.reduce((acc, { name, position, contact }) => [
     ...acc,
-    ['h3', { style: { 'margin-bottom': '5px' } }, company],
-    ['b', `Reference: ${name}`],
-    ['div', `Position: ${position}`],
-    ['div', ['Contact: ', labelContact(contact)]],
+    ['div',
+      {
+        style: {
+          'margin-bottom': '10px',
+        },
+      },
+      ['b', `Reference: ${name}`],
+      ['div', `Position: ${position}`],
+      ['div', ['Contact: ', labelContact(contact)]],
+      company ? ['div', 'Company: ' + company] : ''],
   ], []);
 }
 
