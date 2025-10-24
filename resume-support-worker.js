@@ -68,10 +68,24 @@ function unnest(list){
 
 const supportReferences = [
   {
-    date: '22 September 2025 - 10 October 2025',
-    company: 'Regis Como (Placement)',
+    date: '15, 17 October 2025',
+    company: 'Ark Home Care',
     description: [
-      'Did 3 weeks placement providing aged care and other variety of support, including lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. There are challenges, and I am hopeful of finding solutions to provide the best care possible.',
+      'Did 2 days of buddy shift, assisting with the care of a client with ', ['b', 'autism'], ' and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, portable urinal, etc.)',
+    ],
+    references: [
+      {
+        name: 'Joan Le Roux',
+        position: 'Director',
+        contact: ['08 63882842'],
+      },
+    ],
+  },
+  {
+    date: '22 September 2025 - 10 October 2025',
+    company: 'Regis Como',
+    description: [
+      'Did 3 weeks placement at an aged care facility providing variety of support to predominantly residents with ', ['b', 'dementia'], ', including ADL, lifestyles and IT. I\'ve built the confidence in responding to resident\'s needs such as bed to chair/shower mobility transfers and toiletry/shower needs. Likewise, residents have built confidence in my ability to provide care for them. I also had the pleasure to work with supervising nurses who are happy to ', ['b', 'endorse'], ' me for my time there, please see references below.',
     ],
     references: [
       {
@@ -98,13 +112,19 @@ function formatDescription({ date, company, url, description }) {
   ];
 }
 
-function formatReferences({ references }) {
-  return references.reduce((acc, { company, name, position, contact }) => [
+function formatReferences({ company, references }) {
+  return references.reduce((acc, { name, position, contact }) => [
     ...acc,
-    ['h3', { style: { 'margin-bottom': '5px' } }, company],
-    ['b', `Reference: ${name}`],
-    ['div', `Position: ${position}`],
-    ['div', ['Contact: ', labelContact(contact)]],
+    ['div',
+      {
+        style: {
+          'margin-bottom': '10px',
+        },
+      },
+      ['b', `Reference: ${name}`],
+      ['div', `Position: ${position}`],
+      ['div', ['Contact: ', labelContact(contact)]],
+      company ? ['div', 'Company: ' + company] : ''],
   ], []);
 }
 
@@ -338,6 +358,8 @@ const resume = [
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
     ['h1', 'Support Worker/Carer'],
+    ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve in order to provide the best care for the clients as well doing the job safely. Whatever challenge that you would like to propose to me, I am willing to listen.'],
+    ['p', 'I am currently in ', ['b', 'South Perth'], ' but able to drive.'],
     ['h2', 'Certifications'],
     vdomTable([
       ['USI', '7U6W2KEQML'],
@@ -349,12 +371,13 @@ const resume = [
       ['Last COVID Immunisation', '02 January 2022'],
       ['Last Influenza Immunisation', '01 September 2025'],
       ['Car Ownership/Licence', 'Yes'],
-      ['English Level', 'Proficient'],
       // ['Medcomp', ''],
       // ['Food', ''],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h2', 'Skills'],
     vdomTable([
+      ['English Competency', 'Proficient'],
+      ['Mandarin Competency', 'Basic'],
       ['Mobility equipment', 'Hoist, Sara Stedy/Flex, wheelchair, walker.'],
       ['ADL', 'Bed wash, shower, trolley shower, toiletry, bed-making, shaving.'],
       ['Hygiene', 'Habitual hand washing, glove changing, urinal sterilisation.'],
