@@ -77,14 +77,13 @@ const supportReferences = [
       {
         name: 'G\'Nay Panpone',
         position: 'Registered Nurse',
-        contact: [email('gpanpone@yahoo.com'), '040 247 6155'],
-        // phone: '0402476155',
+        contact: [email('gpanpone@yahoo.com'), ' 040 247 6155'],
         // contact: link('https://www.linkedin.com/in/thomas-drage/'),
       },
       {
         name: 'Rael Kemei',
         position: 'Registered Nurse',
-        contact: '042 224 9344',
+        contact: [email('rashlykemei@gmail.com'), ' 042 224 9344'],
       },
     ],
   },
