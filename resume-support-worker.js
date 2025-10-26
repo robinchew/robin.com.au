@@ -374,6 +374,10 @@ const resume = [
       // ['Medcomp', ''],
       // ['Food', ''],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
+    ['h3', 'Unaccredited'],
+    vdomTable([
+      ['Medication Competence (Auscare Training)', 'Completed on 24 October 2025'],
+    ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h2', 'Skills'],
     vdomTable([
       ['English Competency', 'Proficient'],
