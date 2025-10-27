@@ -92,13 +92,12 @@ const supportReferences = [
         name: 'G\'Nay Panpone',
         position: 'Registered Nurse',
         contact: [email('gpanpone@yahoo.com'), ' 040 247 6155'],
-        // phone: '0402476155',
         // contact: link('https://www.linkedin.com/in/thomas-drage/'),
       },
       {
         name: 'Rael Kemei',
         position: 'Registered Nurse',
-        contact: '042 224 9344',
+        contact: [email('rashlykemei@gmail.com'), ' 042 224 9344'],
       },
     ],
   },
@@ -376,6 +375,10 @@ const resume = [
       ['Comprehensive Car Insurance', 'Yes'],
       // ['Medcomp', ''],
       // ['Food', ''],
+    ], { cols: [null, {style: { 'text-align': 'right' }}] }),
+    ['h3', 'Unaccredited'],
+    vdomTable([
+      ['Medication Competence (Auscare Training)', 'Completed on 24 October 2025'],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h2', 'Skills'],
     vdomTable([
