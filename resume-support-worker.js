@@ -68,6 +68,16 @@ function unnest(list){
 
 const supportReferences = [
   {
+    company: 'Auscare Training',
+    references: [
+      {
+        name: 'Liz Mistry',
+        position: 'Registered Nurse',
+        contact: [email('emistry@auscaretraining.edu.au'), ' 047 864 6613'],
+      },
+    ],
+  },
+  {
     date: '15, 17 October 2025',
     company: 'Ark Home Care',
     description: [
@@ -361,24 +371,24 @@ const resume = [
     ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve in order to provide the best care for the clients as well doing the job safely. Whatever challenge that you would like to propose to me, I am willing to listen.'],
     ['p', 'I am currently in ', ['b', 'South Perth'], ' but able to drive.'],
     ['h2', 'Certifications'],
+    ['h3', 'Competencies'],
     vdomTable([
-      ['USI', '7U6W2KEQML'],
-      ['Certificate III in Individual Support CHC33021', 'Completed on 10 October 2025'],
+      ['Certificate III in Individual Support CHC33021', 'Completed on 13 October 2025'],
       ['First Aid', 'Completed on 17 April 2025'],
-      ['NDIS Worker Screening Check ', [['b', { style: 'color:red' }, 'Expires'], ' on 29 June 2030']],
       ['NDIS Training Modules', 'Complete'],
-      ['Police Clearance ', ['Valid from 23 April 2025']],
-      ['Working With Children Check',  [['b', { style: 'color:red' }, 'Expires'], ' on 17 June 2028']],
-      ['Last COVID Immunisation', '02 January 2022'],
-      ['Last Influenza Immunisation', '01 September 2025'],
-      ['Car Ownership/Licence', 'Yes'],
-      ['Comprehensive Car Insurance', 'Yes'],
+      ['Medication Competence (Auscare Training)', 'Completed on 24 October 2025'],
       // ['Medcomp', ''],
       // ['Food', ''],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
-    ['h3', 'Unaccredited'],
+    ['h3', 'Clearances'],
     vdomTable([
-      ['Medication Competence (Auscare Training)', 'Completed on 24 October 2025'],
+      ['Police Clearance ', ['Valid from 23 April 2025']],
+      ['NDIS Worker Screening Check ', [['b', { style: 'color:red' }, 'Expires'], ' on 29 June 2030']],
+      ['Working With Children Check',  [['b', { style: 'color:red' }, 'Expires'], ' on 17 June 2028']],
+      ['Car Ownership/Licence', 'Yes'],
+      ['Comprehensive Car Insurance', 'Yes'],
+      ['Last COVID Immunisation', '02 January 2022'],
+      ['Last Influenza Immunisation', '01 September 2025'],
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h2', 'Skills'],
     vdomTable([
@@ -392,7 +402,7 @@ const resume = [
       ['Teaching', ['I occasionally teach programming to a client living at a SIL']],
     ]),
     ['h2', 'Experience'],
-    supportReferences.map(formatDescription),
+    supportReferences.filter(obj => obj.description).map(formatDescription),
     ['p', ''],
     ['h2', 'Studies'],
     formatDescription({
