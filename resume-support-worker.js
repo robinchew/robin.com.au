@@ -78,10 +78,24 @@ const supportReferences = [
     ],
   },
   {
-    date: '15, 17 October 2025',
+    date: '3 November 2025 - Ongoing',
+    company: 'HomeCaring',
+    description: [
+      'Provide care for aged clients that includes house cleaning (eg. vacuuming, mopping), assist in toileting, shower, dressing, shaving, exercise reading, and other adhoc requests such as computer, security camera setup and calling tradies for home maintenance as some clients have language difficulties.',
+    ],
+    references: [
+      {
+        name: 'Joan Le Roux',
+        position: 'Director',
+        contact: ['08 63882842'],
+      },
+    ],
+  },
+  {
+    date: '29 October 2025 - 12 December 2025',
     company: 'Ark Home Care',
     description: [
-      'Did 2 days of buddy shift, assisting with the care of a client with ', ['b', 'autism'], ' and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. Some tasks I assisted includes food preparation, monitoring shower routine and everyday activities, and taking them out into community and being properly equipped (eg. water, hat, shoes, wheelchair, portable urinal, etc.)',
+      'Care for a client who has ', ['b', 'autism'], ' and is non-verbal. I built a relationship with the client and follow strict documented routines per the request of the family. My responsibilities include food preparation, monitoring shower routine and everyday activities, and taking the client out into community such as bowling and hiking and making sure he is properly equipped (eg. water, hat, shoes, wheelchair, portable urinal, etc.)',
     ],
     references: [
       {
@@ -368,7 +382,7 @@ const resume = [
     ['a',{href: 'mailto: me@robin.com.au'},'me@robin.com.au'],
     ['div', 'Australian Citizen'],
     ['h1', 'Support Worker/Carer'],
-    ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve in order to provide the best care for the clients as well doing the job safely. Whatever challenge that you would like to propose to me, I am willing to listen.'],
+    ['p', 'I am typically calm, patient, good listener and can handle dynamic situations. I take my time to problem solve and ask questions in order to provide the best care for the clients in a safe manner. I am always open to tackle any challenging task.'],
     ['p', 'I am currently in ', ['b', 'South Perth'], ' but able to drive.'],
     ['h2', 'Certifications'],
     ['h3', 'Competencies'],
@@ -382,7 +396,7 @@ const resume = [
     ], { cols: [null, {style: { 'text-align': 'right' }}] }),
     ['h3', 'Clearances'],
     vdomTable([
-      ['Police Clearance ', ['Valid from 23 April 2025']],
+      ['Police Clearance ', ['Valid from 17 December 2025']],
       ['NDIS Worker Screening Check ', [['b', { style: 'color:red' }, 'Expires'], ' on 29 June 2030']],
       ['Working With Children Check',  [['b', { style: 'color:red' }, 'Expires'], ' on 17 June 2028']],
       ['Car Ownership/Licence', 'Yes'],
