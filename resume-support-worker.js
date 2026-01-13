@@ -68,6 +68,20 @@ function unnest(list){
 
 const supportReferences = [
   {
+    date: '',
+    company: '',
+    description: [
+      '',
+    ],
+    references: [
+      {
+        name: '',
+        position: '',
+        contact: [''],
+      },
+    ],
+  },
+  {
     company: 'Auscare Training',
     references: [
       {
@@ -81,13 +95,13 @@ const supportReferences = [
     date: '3 November 2025 - Ongoing',
     company: 'HomeCaring',
     description: [
-      'Provide care for aged clients that includes house cleaning (eg. vacuuming, mopping), assist in toileting, shower, dressing, shaving, exercise reading, and other adhoc requests such as computer, security camera setup and calling tradies for home maintenance as some clients have language difficulties.',
+      'Provide care for aged clients that includes house cleaning (eg. vacuuming, mopping), assist in toileting, shower, dressing, shaving, exercise, reading, transport, and other adhoc requests such as computer troubleshooting, security camera setup and calling tradies for home maintenance as some clients have language difficulties.',
     ],
     references: [
       {
-        name: 'Joan Le Roux',
-        position: 'Director',
-        contact: ['08 63882842'],
+        name: 'Daphne Doan',
+        position: 'Supervisor',
+        contact: ['044 818 8396'],
       },
     ],
   },
@@ -125,7 +139,7 @@ const supportReferences = [
       },
     ],
   },
-];
+].filter(({ company }) => company);
 
 function formatDescription({ date, company, url, description }) {
   return [
