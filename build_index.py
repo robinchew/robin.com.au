@@ -106,7 +106,7 @@ print(render_to_html(
 file_links = {
     'my_photo': 'robin.com.au-my-photo.png',
     'email_image': 'me-at-robin-com-au.png',
-    'resume_pdf': 'resume-2025-05-24.pdf',
+    'resume_pdf': 'robin-chew-resume-2025-06-15.pdf',
     'social_coding_image': 'monday-workshop-main-image.jpg',
     'computer_setup_photo': 'computer-setup-2025.jpg',
     'build_index_py': 'build_index.py',
