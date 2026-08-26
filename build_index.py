@@ -113,7 +113,7 @@ file_links = {
 }
 
 for link in file_links.values():
-    assert os.path.isfile(link)
+    assert os.path.isfile(link), f'{link} not found'
 
 def template(testimonial_section):
     roof = create_roof()
@@ -179,8 +179,8 @@ def template(testimonial_section):
             </a>
             <a href="https://www.facebook.com/robin.chew.750/" style="text-decoration:auto;font-weight:bold;font-family:sans-serif;font-size:2em">f</a>
             '''),
-            ('', f'<span><img style="vertical-align:middle;margin-right:20px" src="{file_links['email_image']}" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'),
-            ('', f'<a style="font-size:1.5em;letter-spacing:0.2em;text-decoration:none;padding:10px 20px;background:pink;border-radius:5px" href="{file_links['resume_pdf']}">RESUME</a>'),
+            ('', '<span><img style="vertical-align:middle;margin-right:20px" src="{}" /><span class="small">I recruit Software Developers and provide training too, so e-mail me.</span></span>'.format(file_links['email_image'])),
+            ('', '<a style="font-size:1.5em;letter-spacing:0.2em;text-decoration:none;padding:10px 20px;background:pink;border-radius:5px" href="{}">RESUME</a>'.format(file_links['resume_pdf'])),
             ('', dedent(f'''\
             <span style="display:inline-block;padding:10px 20px;background:#ffee99;border-radius:5px">
                 <a  href="http://workshop.robin.com.au/chat">Social Coding</a>
